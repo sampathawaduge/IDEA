@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
+	'hostname' => 'curtin.ckhpz03inzdg.us-west-2.rds.amazonaws.com',
+	'username' => 'sameera',
+	'password' => 'rootroot',
+	'database' => 'sameeraPDM',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
