@@ -39,7 +39,10 @@ class Login_controller extends CI_Controller
     }
     public function mainpage()
     {
-        $this->load->view('index2.html');
+        $this->load->view('templates/header');
+        $this->load->view('1');
+        $this->load->view('templates/footer');
+
     }
 
 
