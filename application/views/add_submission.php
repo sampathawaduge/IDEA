@@ -183,60 +183,100 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-            <br />
-            <div class="">
 
-                <div class="row top_tiles">
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-caret-square-o-right"></i>
-                            </div>
-                            <div class="count">179</div>
+            </br>
+            </br>
+            </br>    </br></br></br></br></br>
 
-                            <h3>New Sign ups</h3>
-                            <p>Lorem ipsum psdea itgum rixt.</p>
+            <div id="summernote">
+            <script>
+                $(document).ready(function() {
+                    $('#summernote').summernote({
+                        height: 100,                 // set editor height
+                        width:200,
+                        minHeight: null,             // set minimum height of editor
+                        maxHeight: null,             // set maximum height of editor
+                        focus: true                  // set focus to editable area after initializing summernote
+                    });
+                });
+            </script>
+            </div>
+            <!-- Split button -->
+<!--            <div class="col-md-6">-->
+            <div class="btn-group">
+                <button type="button" class="btn btn-danger" id="btnStatus" >Select Category</button>
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false" >
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+
+            <?php
+
+            foreach ($test as $key) {
+                echo "<li>";
+                echo "<a href='#'>".$key->category_name."</a>";
+//               echo "<option value='.$key->category_name.'>".$key->category_name."</option>";
+                       echo  "</li >";
+                                }
+            ?>
+                </ul>
+                </div>
+<!--            </div>-->
+<!--                <div class="col-md-6">-->
+
+
+                <button type="button" class="btn btn-danger" id="idea_button">Add Submission</button>
+<!--            </div>-->
+
+            <div class="profile_title">
+                <div class="col-md-6">
+                    <h2>Submissions</h2>
+                    <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+
+                            <!-- start recent activity -->
+                            <?php
+                            echo "<ul class='messages'>";
+
+                                echo "<li>";
+
+                                    echo "<img src='assets/images1/img.jpg' class='avatar' alt='Avatar'>";
+
+                                    foreach ($subs as $submission) {
+                                        echo "<div class='message_date'>";
+                                        echo "<h3 class='date text-info'>24</h3>";
+                                        echo " <p class='month'>May</p>";
+                                        echo "</div>";
+                                        echo "<div class='message_wrapper'>";
+                                        echo "<p class='url'>";
+                                        echo "<h4 class='heading'>$submission->submission_user.</h4>";
+                                        echo "<blockquote class='message'>$submission->description.</blockquote>";
+
+                                        echo "</p>";
+                                        echo "</br>";
+                                        ;
+                                        echo "</div>";
+
+
+                               echo "</li>";
+
+                                    }
+
+
+                            echo "</ul>";
+                            ?>
+                            <!-- end recent activity -->
+
                         </div>
-                    </div>
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-comments-o"></i>
-                            </div>
-                            <div class="count">179</div>
-
-                            <h3>New Sign ups</h3>
-                            <p>Lorem ipsum psdea itgum rixt.</p>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-sort-amount-desc"></i>
-                            </div>
-                            <div class="count">179</div>
-
-                            <h3>New Sign ups</h3>
-                            <p>Lorem ipsum psdea itgum rixt.</p>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-check-square-o"></i>
-                            </div>
-                            <div class="count">179</div>
-
-                            <h3>New Sign ups</h3>
-                            <p>Lorem ipsum psdea itgum rixt.</p>
-                        </div>
+                </div>
                     </div>
                 </div>
 
 
 
-                                </div>
-            <br />
-            <br />
-            <div class="col-md-6">
-            <button type="button" class="btn btn-danger"><a href="<?php echo site_url('/add_submission')?>">Add Submission</a></button>
 
-                </div>
+
+
         </div>
 

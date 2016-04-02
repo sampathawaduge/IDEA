@@ -184,59 +184,67 @@
         <!-- page content -->
         <div class="right_col" role="main">
             <br />
-            <div class="">
 
-                <div class="row top_tiles">
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-caret-square-o-right"></i>
-                            </div>
-                            <div class="count">179</div>
 
-                            <h3>New Sign ups</h3>
-                            <p>Lorem ipsum psdea itgum rixt.</p>
+
+<!--            <div class="container">-->
+<!--                <h2>Well Size</h2>-->
+<!---->
+<!---->
+<!--                    <div class="panel panel-default">-->
+<!--                        <div class="panel-body"><div class="well well-lg">-->
+<!---->
+<!--                            </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+
+                            <div class="clearfix"></div>
                         </div>
-                    </div>
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-comments-o"></i>
-                            </div>
-                            <div class="count">179</div>
-
-                            <h3>New Sign ups</h3>
-                            <p>Lorem ipsum psdea itgum rixt.</p>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-sort-amount-desc"></i>
-                            </div>
-                            <div class="count">179</div>
-
-                            <h3>New Sign ups</h3>
-                            <p>Lorem ipsum psdea itgum rixt.</p>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-check-square-o"></i>
-                            </div>
-                            <div class="count">179</div>
-
-                            <h3>New Sign ups</h3>
-                            <p>Lorem ipsum psdea itgum rixt.</p>
-                        </div>
-                    </div>
-                </div>
-
-
-
+                        <div class="x_content">
+                            <br />
+                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                                <div id="summernote">
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#summernote').summernote({
+                                                height: 100,                 // set editor height
+                                                width:200,
+                                                minHeight: null,             // set minimum height of editor
+                                                maxHeight: null,             // set maximum height of editor
+                                                focus: true                  // set focus to editable area after initializing summernote
+                                            });
+                                        });
+                                    </script>
                                 </div>
-            <br />
-            <br />
-            <div class="col-md-6">
-            <button type="button" class="btn btn-danger"><a href="<?php echo site_url('/add_submission')?>">Add Submission</a></button>
 
+
+
+
+
+
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                                        <button type="submit" class="btn btn-success">Comment</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <br />
+            <br />
+
         </div>
 
