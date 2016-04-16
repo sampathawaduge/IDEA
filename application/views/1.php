@@ -7,7 +7,7 @@
             <div class="left_col scroll-view">
 
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-bolt"></i> <span>IDEA World</span></a>
+                    <a href="<?php echo site_url('Login_controller/mainpage')?>" class="site_title"><i class="fa fa-bolt"></i> <span>IDEA World</span></a>
                 </div>
                 <div class="clearfix"></div>
 
@@ -19,20 +19,31 @@
                     </div>
                     <div class="profile_info">
                         <span>Welcome</span>
-                        <h2>John Doe</h2>
+                        <?php
+
+                            echo "<h2>".$this->session->userdata['username']."</h2>";
+                        ?>
+
                     </div>
                 </div>
                 <!-- /menu prile quick info -->
 
                 <br />
-
+                <br>
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
                     <div class="menu_section">
-                        <h3>General</h3>
+                        <?php
+                        echo '<h3>';
+                        foreach ($user as $category)
+                        {
+                            echo $category->category;
+                        }
+                        echo '</h3>';
+                        ?>
                         <ul class="nav side-menu">
-                            <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-right"></span></a>
+
 
                             </li>
                             <li><a href="<?php echo site_url('/user_profile')?>"><i class="fa fa-user" ></i> User Profile <span class="fa fa-chevron-right"></span></a>
@@ -40,7 +51,7 @@
 
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-folder"></i> FAQ <span class="fa fa-chevron-right"></span></a>
+                            <li><a href="<?php echo site_url('/add_submission')?>"><i class="fa fa-folder"></i>Add Submission<span class="fa fa-chevron-right"></span></a>
                                 <ul class="nav child_menu" style="display: none">
 
                                 </ul>
@@ -80,87 +91,47 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="">John Doe
+                                <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="">
+                                <?php
+                                    echo $this->session->userdata['username'];
+                                ?>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                <li><a href="javascript:;">  Profile</a>
+                                <li><a href="<?php echo site_url('/User_profile')?>">Profile</a>
                                 </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="badge bg-red pull-right">50%</span>
-                                        <span>Settings</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">Help</a>
-                                </li>
-                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                <li><a href="<?php echo site_url('/Login_controller/logout')?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                 </li>
                             </ul>
                         </li>
 
+
                         <li role="presentation" class="dropdown">
                             <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-envelope-o"></i>
-                                <span class="badge bg-green">6</span>
+                                <span class="badge bg-green">5</span>
                             </a>
                             <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
                                 <li>
-                                    <a>
-                      <span class="image">
-                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                      <span class="image">
-                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                      <span class="image">
-                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                      <span class="image">
-                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                                    </a>
+                                    <?php
+                                    foreach ($working as $item) {
+
+                                        echo "<a>";
+
+//                                        echo "<img src=".base_url('assets/images1/img.jpg')."alt='Profile Image' />";
+                                        echo "<span class='image'><img src='".base_url('assets/images1/img.jpg')."'/></span>";
+                                        echo "<span>";
+                                        echo "<span>".$item->submission_user."</span>";
+                                        echo "<span class='time'>".$item->submission_time."</span>";
+                                        echo "</span>";
+                                        echo "<span class='message'>";
+                                        echo $item->description;
+                                        echo "</span>";
+                                        echo "</a>";
+
+                                    }
+
+                                    ?>
                                 </li>
                                 <li>
                                     <div class="text-center">
@@ -173,6 +144,7 @@
                             </ul>
                         </li>
 
+
                     </ul>
                 </nav>
             </div>
@@ -183,60 +155,7 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-            <br />
-            <div class="">
+            
 
-                <div class="row top_tiles">
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-caret-square-o-right"></i>
-                            </div>
-                            <div class="count">179</div>
-
-                            <h3>New Sign ups</h3>
-                            <p>Lorem ipsum psdea itgum rixt.</p>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-comments-o"></i>
-                            </div>
-                            <div class="count">179</div>
-
-                            <h3>New Sign ups</h3>
-                            <p>Lorem ipsum psdea itgum rixt.</p>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-sort-amount-desc"></i>
-                            </div>
-                            <div class="count">179</div>
-
-                            <h3>New Sign ups</h3>
-                            <p>Lorem ipsum psdea itgum rixt.</p>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-check-square-o"></i>
-                            </div>
-                            <div class="count">179</div>
-
-                            <h3>New Sign ups</h3>
-                            <p>Lorem ipsum psdea itgum rixt.</p>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                                </div>
-            <br />
-            <br />
-            <div class="col-md-6">
-            <button type="button" class="btn btn-danger"><a href="<?php echo site_url('/add_submission')?>">Add Submission</a></button>
-
-                </div>
         </div>
 

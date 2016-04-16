@@ -20,7 +20,7 @@
                     <div class="profile_info">
                         <span>Welcome</span>
                         <?php
-                            echo "<h2>".$this->session->userdata['username']."</h2>";
+                        echo "<h2>".$this->session->userdata['username']."</h2>";
                         ?>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                     <div class="menu_section">
                         <h3>General</h3>
                         <ul class="nav side-menu">
-                            <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-right"></span></a>
+                            <li><a href="<?php echo site_url('/Login_controller/mainpage')?>"><i class="fa fa-home"></i> Home <span class="fa fa-chevron-right"></span></a>
 
                             </li>
                             <li><a href="<?php echo site_url('/user_profile')?>"><i class="fa fa-user" ></i> User Profile <span class="fa fa-chevron-right"></span></a>
@@ -87,7 +87,7 @@
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                <li><a href="javascript:;">  Profile</a>
+                                <li><a href="<?php echo site_url('/userprof')?>">  Profile</a>
                                 </li>
                                 <li>
                                     <a href="javascript:;">
@@ -189,23 +189,26 @@
 
             </br>
             </br>
-            </br>    </br></br></br></br></br>
+            </br>
 
-            <div id="summernote">
-            <script>
-                $(document).ready(function() {
-                    $('#summernote').summernote({
-                        height: 100,                 // set editor height
-                        width:200,
-                        minHeight: null,             // set minimum height of editor
-                        maxHeight: null,             // set maximum height of editor
-                        focus: true                  // set focus to editable area after initializing summernote
-                    });
-                });
-            </script>
-            </div>
+<!--            <div id="summernote">-->
+<!---->
+<!--            </div>-->
+<!--            <script>-->
+<!--                $(document).ready(function() {-->
+<!--                    $('#summernote').summernote({-->
+<!--                        height: 100,                 // set editor height-->
+<!--                        width:300,-->
+<!--                        minHeight: null,             // set minimum height of editor-->
+<!--                        maxHeight: null,             // set maximum height of editor-->
+<!--                        focus: true                  // set focus to editable area after initializing summernote-->
+<!--                    });-->
+<!--                });-->
+<!--            </script>-->
+            <div id="summernote">Hello Summernote</div>
+
             <!-- Split button -->
-<!--            <div class="col-md-6">-->
+            <!--            <div class="col-md-6">-->
             <div class="btn-group">
                 <button type="button" class="btn btn-danger" id="btnStatus" >Select Category</button>
                 <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false" >
@@ -214,23 +217,28 @@
                 </button>
                 <ul class="dropdown-menu" role="menu">
 
-            <?php
+                    <?php
 
-            foreach ($test as $key) {
-                echo "<li>";
-                echo "<a href='#'>".$key->category_name."</a>";
+                    foreach ($test as $key) {
+                        echo "<li>";
+                        echo "<a href='#'>".$key->category_name."</a>";
 //               echo "<option value='.$key->category_name.'>".$key->category_name."</option>";
-                       echo  "</li >";
-                                }
-            ?>
+                        echo  "</li >";
+                    }
+                    ?>
                 </ul>
-                </div>
-<!--            </div>-->
-<!--                <div class="col-md-6">-->
+                <button style="margin-left:20px;" type="submit" class="btn btn-danger" id="idea_button">Add Submission</button>
+            </div>
+            <!--            </div>-->
+            <!--                <div class="col-md-6">-->
 
 
-                <button type="button" class="btn btn-danger" id="idea_button">Add Submission</button>
-<!--            </div>-->
+
+            <!--            </div>-->
+            <br>
+            <br>
+            <br>
+            <br>
 
             <div class="profile_title">
                 <div class="col-md-6">
@@ -239,47 +247,38 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
 
                             <!-- start recent activity -->
-                            <?php
-                            echo "<ul class='messages'>";
-
+                            <ul class='messages'>
+                              <?php
+                            foreach ($subs as $submission) {
                                 echo "<li>";
-
-                                    echo "<img src='assets/images1/img.jpg' class='avatar' alt='Avatar'>";
-
-                                    foreach ($subs as $submission) {
-                                        echo "<div class='message_date'>";
-                                        echo "<h3 class='date text-info'>24</h3>";
-                                        echo " <p class='month'>May</p>";
-                                        echo "</div>";
-                                        echo "<div class='message_wrapper'>";
-                                        echo "<p class='url'>";
-                                        echo "<h4 class='heading'>$submission->submission_user.</h4>";
-                                        echo "<blockquote class='message'>$submission->description.</blockquote>";
-
-                                        echo "</p>";
-                                        echo "</br>";
-                                        ;
-                                        echo "</div>";
+                                echo "<img src='".base_url('assets/images1/img.jpg')."' class='avatar' alt='Avatar'>";
+                                echo "<div class='message_date'>";
+                                echo "<h3 class='date text-info'>$submission->submission_time</h3>";
+                                echo " <p class='month'>$submission->submission_date</p>";
+                                echo "</div>";
+                                echo "<div class='message_wrapper'>";
+                                echo "<p class='url'>";
+                                echo "<h4 class='heading'>$submission->submission_user.</h4>";
+                                echo "<div class='link'><blockquote class='message'>$submission->description.</blockquote></div>";
+                                echo "</p>";
+                                echo "</br>";
+                                echo "</div>";
 
 
-                               echo "</li>";
+                                echo "</li>";
 
-                                    }
+                            }
+                          ?>
 
-
-                            echo "</ul>";
-                            ?>
+                            </ul>
                             <!-- end recent activity -->
 
                         </div>
-                </div>
                     </div>
                 </div>
-
-
-
-
-
-
+            </div>
+            
         </div>
+    </div>
+</div>
 

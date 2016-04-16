@@ -19,9 +19,7 @@
                     </div>
                     <div class="profile_info">
                         <span>Welcome</span>
-                        <?php
-                            echo "<h2>".$this->session->userdata['username']."</h2>";
-                        ?>
+                        <h2>John Doe</h2>
                     </div>
                 </div>
                 <!-- /menu prile quick info -->
@@ -82,8 +80,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="">
-                                <?php echo $this->session->userdata['username'] ?>
+                                <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="">John Doe
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
@@ -186,93 +183,68 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-
-            </br>
-            </br>
-            </br>    </br></br></br></br></br>
-
-            <div id="summernote">
-            <script>
-                $(document).ready(function() {
-                    $('#summernote').summernote({
-                        height: 100,                 // set editor height
-                        width:200,
-                        minHeight: null,             // set minimum height of editor
-                        maxHeight: null,             // set maximum height of editor
-                        focus: true                  // set focus to editable area after initializing summernote
-                    });
-                });
-            </script>
-            </div>
-            <!-- Split button -->
-<!--            <div class="col-md-6">-->
-            <div class="btn-group">
-                <button type="button" class="btn btn-danger" id="btnStatus" >Select Category</button>
-                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false" >
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-
-            <?php
-
-            foreach ($test as $key) {
-                echo "<li>";
-                echo "<a href='#'>".$key->category_name."</a>";
-//               echo "<option value='.$key->category_name.'>".$key->category_name."</option>";
-                       echo  "</li >";
-                                }
-            ?>
-                </ul>
+            <br />
+            <div class="x_title">
+                <h1>IDEA.</h1>
                 </div>
-<!--            </div>-->
-<!--                <div class="col-md-6">-->
+            <div class="clearfix"></div>
 
 
-                <button type="button" class="btn btn-danger" id="idea_button">Add Submission</button>
-<!--            </div>-->
-
-            <div class="profile_title">
-                <div class="col-md-6">
-                    <h2>Submissions</h2>
-                    <div id="myTabContent" class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-
-                            <!-- start recent activity -->
-                            <?php
-                            echo "<ul class='messages'>";
-
-                                echo "<li>";
-
-                                    echo "<img src='assets/images1/img.jpg' class='avatar' alt='Avatar'>";
-
-                                    foreach ($subs as $submission) {
-                                        echo "<div class='message_date'>";
-                                        echo "<h3 class='date text-info'>24</h3>";
-                                        echo " <p class='month'>May</p>";
-                                        echo "</div>";
-                                        echo "<div class='message_wrapper'>";
-                                        echo "<p class='url'>";
-                                        echo "<h4 class='heading'>$submission->submission_user.</h4>";
-                                        echo "<blockquote class='message'>$submission->description.</blockquote>";
-
-                                        echo "</p>";
-                                        echo "</br>";
-                                        ;
-                                        echo "</div>";
 
 
-                               echo "</li>";
-
-                                    }
 
 
-                            echo "</ul>";
-                            ?>
-                            <!-- end recent activity -->
+
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="x_content ">
+                            <ul class="list-unstyled msg_list">
+                                <li>
+                                    <a>
+                      <span class="image">
+                                    <img src=<?php echo base_url('assets/images1/img.jpg')?> alt="img" />
+                                </span>
+                      <span>
+                                    <span>John Smith</span>
+                      <span class="time">3 mins ago</span>
+                      </span>
+                      <span class="message">
+                                    Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that
+                                </span>
+                                    </a>
+                                </li>
+
+
+
+                            </ul>
+                            <div class="vote chev col-sm-push-10">
+                                <div class="increment up"></div>
+                                <div class="increment down"></div>
+
+                                <div class="count">0</div>
+                            </div>
+                        </div>
+
+                        <div class="row col-sm-6">
+
+                            <!--                                <a class="btn btn-app">-->
+                            <!--                                    <span class="badge bg-blue">102</span>-->
+                            <!--                                    <i class="fa fa-heart-o"></i> Likes-->
+                            <!--                                </a>-->
+
+                            <button type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-thumbs-up">like <span class="badge bg-blue">102</span></span>
+                            </button>
+                            <a class="btn btn-app col-md-push-9 col-sm-push-9 col-xs-push-9 " >
+                                <span class="badge bg-green">211</span>
+                                <i class="fa fa-users"></i> Views
+                            </a>
+                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+
 
                         </div>
-                </div>
                     </div>
                 </div>
 
@@ -280,6 +252,83 @@
 
 
 
+        <div class="x_title">
+
+            <h2>Comments</h2>
+        </div>
+            </br>
+
+
+                    <div class="col-md-6">
+                        <div class="x_panel">
+
+                            <div class="x_content">
+                                <ul class="list-unstyled msg_list">
+                                    <li>
+                                        <a>
+                      <span class="image">
+                                    <img src=<?php echo base_url('assets/images1/img.jpg')?> alt="img" />
+                                </span>
+                      <span>
+                                    <span>John Smith</span>
+                      <span class="time">3 mins ago</span>
+                      </span>
+                      <span class="message">
+                                    Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that
+                                </span>
+                                        </a>
+                                    </li>
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                        <div class="x_content">
+                            <br />
+                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                                <div id="summernote">
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#summernote').summernote({
+                                                height: 100,                 // set editor height
+                                                width:200,
+                                                minHeight: null,             // set minimum height of editor
+                                                maxHeight: null,             // set maximum height of editor
+                                                focus: true                  // set focus to editable area after initializing summernote
+                                            });
+                                        });
+                                    </script>
+                                </div>
+
+
+
+
+
+
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+<!--                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">-->
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+
+                                        <button type="submit" class="btn btn-success">Comment</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+            <br />
+            <br />
 
         </div>
 

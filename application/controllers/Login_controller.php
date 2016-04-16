@@ -12,7 +12,8 @@ class Login_controller extends CI_Controller
     }
     public  function index()
     {
-        $this->load->view('login.html');
+          $this->load->view('login.html');
+
     }
     /**Get data passed from login view
      *
@@ -28,10 +29,16 @@ class Login_controller extends CI_Controller
         if ($usr_result > 0) //active user record is present
         {
             //set the session variables
-            $sessiondata = array(
-                'username' => $username,
-                'loginuser' => TRUE
-            );
+
+                $sessiondata = array(
+                    'username' => $username,
+                    'loginuser' => TRUE
+                );
+
+//            $sessiondata = array(
+//                'username' => $username,
+//                'loginuser' => TRUE
+//            );
             $this->session->set_userdata($sessiondata);
             redirect("Login_controller/mainpage");
         }
@@ -39,12 +46,35 @@ class Login_controller extends CI_Controller
     }
     public function mainpage()
     {
+        $username=$this->session->userdata['username'];
+        $this->load->model('Latest_submissions');
+        $val=$this->Latest_submissions->get_latest($username);
+        
+        $this->load->model('userprof');
+        $user=$this->userprof->getUserDetails($username);
+        
+        $data['working']=$val;
+        $data['user']=$user;
+        
         $this->load->view('templates/header');
-        $this->load->view('1');
+        $this->load->view('1',$data);
         $this->load->view('templates/footer');
+//        $this->load->view('templates/header');
+//        $this->load->view('add_submission 2');
+//        $this->load->view('templates/footer');
 
+    }
+    public function logout()
+    {
+        //if ($this->input->post('btn_login') == "Login")
+        $sess_array = array(
+            'username'=>''
+        );
+        $this->session->unset_userdata('set_userdata',$sess_array);
+        //$data['message_display']='Successfully logout';
+        $this->session->sess_destroy();
+        $this->load->view("login.html");
     }
 
 
 }
-?>

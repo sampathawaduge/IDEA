@@ -8,19 +8,19 @@ class submission extends CI_Model{
     }
     public function insert_submission($val)
     {
-        if($this->db->insert('tbl_Submissions',$val))
+        if($this->db->insert('table_submission',$val))
         {
             echo true;
         }
     }
     public function student_subcategories($user)
     {
-        $sql="select * from tbl_User where name = ?";
+        $sql="select * from table_users where name = ?";
         $query=$this->db->query($sql,array($user));
         $ans=$query->row();
 
 
-        $result=$this->db->query("select * from tbl_Submission_Category where type_id like '".$ans->category."'");
+        $result=$this->db->query("select * from table_category where user_type like '".$ans->category."'");
         $data=$result->result();
         return $data;
     }

@@ -1,5 +1,5 @@
 <footer>
-<script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
+<!--<script src="--><?php //echo base_url('assets/js/bootstrap.min.js')?><!--"></script>-->
 <script src="<?php echo base_url('assets/js1/nicescroll/jquery.nicescroll.min.js')?>"></script>
 
 <!-- bootstrap progress js -->
@@ -367,6 +367,7 @@
 
 <!-- /datepicker -->
 </footer>
+
 </body>
 
 </html>

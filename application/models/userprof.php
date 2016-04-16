@@ -9,7 +9,7 @@ class userprof extends CI_Model{
     {
 
         $this->db->select('*');
-        $this->db->from('tbl_Submissions');
+        $this->db->from('table_submission');
         $this->db->where('submission_user', $user);
         $subs = $this->db->get();
         return $subs->result();
@@ -19,7 +19,7 @@ class userprof extends CI_Model{
     {
 
         $this->db->select('*');
-        $this->db->from('tbl_User');
+        $this->db->from('table_users');
         $this->db->where('name', $user);
         $details = $this->db->get();
         return $details->result();
