@@ -24,9 +24,9 @@ class add_submission extends CI_Controller
             $data['subs'] = $subs;
 //            $data['user'] = $user;
 ////
-//            $details = $this->userprof->getUserDetails($user);
+            $details = $this->userprof->getUserDetails($user);
 ////
-////            $data['details'] = $details;
+            $data['user'] = $details;
 ////
 ////
             $query = $this->submission->student_subcategories($user);
@@ -41,12 +41,6 @@ class add_submission extends CI_Controller
 
         }
     }
-
-
-
-
-
-    
 
     public function show()
     {

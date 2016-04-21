@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'curtin.ckhpz03inzdg.us-west-2.rds.amazonaws.com',
+	'hostname' => 'localhost',
 	'username' => 'sameera',
-	'password' => 'rootroot',
-	'database' => 'sameeraPDM',
+	'password' => '',
+	'database' => 'PDM_project',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

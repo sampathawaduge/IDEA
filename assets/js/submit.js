@@ -2,7 +2,6 @@
  * Created by AppleFactory on 4/16/2016 AD.
  */
 $(document).ready(function(){
-    $('#summernote').summernote();
 
     var selection;
 
@@ -38,7 +37,6 @@ $(document).ready(function(){
 
     }
 
-
     $("#idea_button").click(function(){
 
         var comment = $('#summernote').summernote('code');
@@ -53,8 +51,14 @@ $(document).ready(function(){
                 data:{min:min,date:today,comment:comment,subcat:selection},
                 success:function(data)
                 {
-                    alert("Submission add successfully!");
-                    location.reload();
+                    if(data) {
+                        alert("Submission add successfully!");
+                        location.reload();
+                    }
+                    else
+                    {
+                        alert("Unable to Submit");
+                    }
                 }
             });
         }
@@ -66,11 +70,8 @@ $(document).ready(function(){
         {
             alert("Select Submission category");
         }
-        console.log(today);
+
     })
-
-    $(".link").click(function(){
-        window.location.href="http://localhost:81/IDEA/index.php/Login_controller/mainpage";
-
-    });
+    
+    
 });

@@ -12,7 +12,7 @@
         {
            parent::__construct();
 
-            if($this->input->is_cli_request() == false){
+            if($this->input->is_cli_request() ==FALSE){
                 show_404();
             }
             $this->load->library('migration');
@@ -28,17 +28,7 @@
             $this->migration->version(0);
             echo $this->migration->error_string().PHP_EOL;
         }
-        public function version($version = 0)
-        {
-            $version=(int)$version;
-            if($version == 0)
-            {
-                die("You need to pass a version greate than zero").PHP_EOL;
-            }
-            $this->migration->version($version);
-            echo $this->migration->error_string().PHP_EOL;
-        }
-
+    
 
 
     }

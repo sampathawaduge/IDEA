@@ -12,6 +12,10 @@ class submission extends CI_Model{
         {
             echo true;
         }
+        else
+        {
+            echo false;
+        }
     }
     public function student_subcategories($user)
     {

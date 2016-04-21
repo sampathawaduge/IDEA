@@ -183,67 +183,67 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-            <br />
+            <p>Click on description to comment</p>
+            <ul class='messages'>
+                <?php
+                foreach ($sub as $submission) {
+                    echo "<li>";
+                    echo "<img src='".base_url('assets/images1/img.jpg')."' class='avatar' alt='Avatar'>";
+                    echo "<div class='message_date'>";
+                    echo "<h3 class='date text-info'>$submission->submission_time</h3>";
+                    echo " <p class='month'>$submission->submission_date</p>";
+                    echo "</div>";
+                    echo "<div class='message_wrapper'>";
+                    echo "<p class='url'>";
+                    echo "<h4 class='heading'>$submission->submission_user.</h4>";
+                    echo "<a href='".site_url('/comment/show/'.$submission->submission_id)."'>";
+                    echo "<blockquote class='message'>$submission->description.</blockquote>";
+                    echo "</a>";
+                    echo "</p>";
+                    echo "</br>";
+                    echo "</div>";
+                    echo "</li>";
+                }
+                ?>
+            </ul>
+            <div id="note"></div>
+            <input type="button" class="btn btn-primary" value="Add" id="comment">
+            <ul class='messages'>
+                <?php
+                foreach ($com as $comment) {
+                    echo "<li>";
+                    echo "<img src='".base_url('assets/images1/img.jpg')."' class='avatar' alt='Avatar'>";
+                    echo "<div class='message_date'>";
+                    echo "<h5 class='date text-info'>$comment->comment_time</h5>";
+                    echo " <p class='month'>$comment->comment_date</p>";
+                    echo "</div>";
+                    echo "<div class='message_wrapper'>";
+                    echo "<p class='url'>";
+                    echo "<h5 class='heading'>$comment->comment_user</h5>";
+                    echo "<a href='".site_url('/comment/show/'.$submission->submission_id)."'>";
+                    echo "<blockquote class='message'>$comment->comment</blockquote>";
+                    echo "</a>";
+                    echo "</p>";
+                    echo "</br>";
+                    echo "</div>";
+                    echo "</li>";
+                }
+                ?>
+            </ul>
+        </div>
+        <script>
+            $('#note').summernote({
+                height: 100,                 // set editor height
+                minHeight: null,             // set minimum height of editor
+                maxHeight: null,             // set maximum height of editor
+                focus: true                  // set focus to editable area after initializing summernote
+            });
+        </script>
 
 
 
-<!--            <div class="container">-->
-<!--                <h2>Well Size</h2>-->
-<!---->
-<!---->
-<!--                    <div class="panel panel-default">-->
-<!--                        <div class="panel-body"><div class="well well-lg">-->
-<!---->
-<!--                            </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
 
-
-
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">
-                        <div class="x_title">
-
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content">
-                            <br />
-                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-                                <div id="summernote">
-                                    <script>
-                                        $(document).ready(function() {
-                                            $('#summernote').summernote({
-                                                height: 100,                 // set editor height
-                                                width:200,
-                                                minHeight: null,             // set minimum height of editor
-                                                maxHeight: null,             // set maximum height of editor
-                                                focus: true                  // set focus to editable area after initializing summernote
-                                            });
-                                        });
-                                    </script>
-                                </div>
-
-
-
-
-
-
-                                <div class="ln_solid"></div>
-                                <div class="form-group">
-                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-
-                                        <button type="submit" class="btn btn-success">Comment</button>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br />
+        <br />
             <br />
 
         </div>

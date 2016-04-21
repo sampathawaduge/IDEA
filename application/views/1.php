@@ -106,43 +106,7 @@
                         </li>
 
 
-                        <li role="presentation" class="dropdown">
-                            <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-envelope-o"></i>
-                                <span class="badge bg-green">5</span>
-                            </a>
-                            <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
-                                <li>
-                                    <?php
-                                    foreach ($working as $item) {
-
-                                        echo "<a>";
-
-//                                        echo "<img src=".base_url('assets/images1/img.jpg')."alt='Profile Image' />";
-                                        echo "<span class='image'><img src='".base_url('assets/images1/img.jpg')."'/></span>";
-                                        echo "<span>";
-                                        echo "<span>".$item->submission_user."</span>";
-                                        echo "<span class='time'>".$item->submission_time."</span>";
-                                        echo "</span>";
-                                        echo "<span class='message'>";
-                                        echo $item->description;
-                                        echo "</span>";
-                                        echo "</a>";
-
-                                    }
-
-                                    ?>
-                                </li>
-                                <li>
-                                    <div class="text-center">
-                                        <a>
-                                            <strong>See All Alerts</strong>
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
+                        
 
 
                     </ul>
@@ -155,7 +119,35 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-            
+            <p>Click on description to comment</p>
+            <ul class='messages'>
+                                <?php
+                                if($submissions) {
+                                    foreach ($submissions as $submission) {
+                                        echo "<li>";
+                                        echo "<img src='" . base_url('assets/images1/img.jpg') . "' class='avatar' alt='Avatar'>";
+                                        echo "<div class='message_date'>";
+                                        echo "<h3 class='date text-info'>$submission->submission_time</h3>";
+                                        echo " <p class='month'>$submission->submission_date</p>";
+                                        echo "</div>";
+                                        echo "<div class='message_wrapper'>";
+                                        echo "<p class='url'>";
+                                        echo "<h4 class='heading'>$submission->submission_user.</h4>";
+                                        echo "<a href='" . site_url('/comment/show/' . $submission->submission_id) . "'>";
+                                        echo "<blockquote class='message'>$submission->description.</blockquote>";
+                                        echo "</a>";
+                                        echo "</p>";
+                                        echo "</br>";
+                                        echo "</div>";
+                                        echo "</li>";
+
+                                    }
+                                }
+                                ?>
+              </ul>
+
 
         </div>
 
+    </div>
+</div>

@@ -40,9 +40,33 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
     <script src="<?php echo base_url('assets/js/submit.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/comment.js')?>"></script>
 
     <!--    <script src="--><?php //base_url('assets/js/prototype.js')?><!--"></script>-->
 <!--    <script src="--><?php //base_url('assets/js/scriptaculous.js')?><!--"></script>-->
+    
+    <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $( "#myform1" ).validate({
+                rules: {
+                    //   nombre: { required: true, number: false, minlength: 1 },
+                    //  email: { required: true, email: true },
+                    //  cp: { required: true, number: true, minlength: 5, maxlength: 5 },
+                    password: { required: true, minlength: 8 },
+                    password2: { required: true, minlength: 8, equalTo: "#password" }
+                },
+                messages: {
+                    //   nombre: "Introduce un nombre correcto",
+                    //   email: "Introduce un email correcto",
+                    //  cp: "Introduce un codigo postal correcto",
+                    password: "passwrord should be atleast 8 characters",
+                    password2: "passwords should match"
+                }
+            });
+        });
+    </script>
 
 
 </head>
