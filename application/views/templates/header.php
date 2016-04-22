@@ -65,6 +65,7 @@
                     password2: "passwords should match"
                 }
             });
+            
         });
     </script>
 

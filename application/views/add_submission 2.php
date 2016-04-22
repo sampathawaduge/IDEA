@@ -49,7 +49,11 @@
 
                                 </ul>
                             </li>
+                            <li><a href="<?php echo site_url('/search')?>"><i class="fa fa-eye"></i>Search<span class="fa fa-chevron-right"></span></a>
+                                <ul class="nav child_menu" style="display: none">
 
+                                </ul>
+                            </li>
                             <li><a><i class="fa fa-eye"></i> About Us<span class="fa fa-chevron-right"></span></a>
                                 <ul class="nav child_menu" style="display: none">
 

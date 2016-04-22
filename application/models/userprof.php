@@ -57,9 +57,8 @@ class userprof extends CI_Model{
 
     public function addto_db($val,$mail)
     {
-        $sql="select * from table_users where email = ?";
-        $query=$this->db->query($sql,array($mail));
-
+        $sql="select * from table_users";
+        $this->db->where('email',$mail);
         return $this->db->update('table_users',$val);
 
 

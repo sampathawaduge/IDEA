@@ -56,6 +56,11 @@
 
                                 </ul>
                             </li>
+                            <li><a href="<?php echo site_url('/search')?>"><i class="fa fa-eye"></i>Search<span class="fa fa-chevron-right"></span></a>
+                                <ul class="nav child_menu" style="display: none">
+
+                                </ul>
+                            </li>
                             <li><a><i class="fa fa-eye"></i> About Us<span class="fa fa-chevron-right"></span></a>
                                 <ul class="nav child_menu" style="display: none">
 
@@ -134,10 +139,12 @@
                                         echo "<p class='url'>";
                                         echo "<h4 class='heading'>$submission->submission_user.</h4>";
                                         echo "<a href='" . site_url('/comment/show/' . $submission->submission_id) . "'>";
-                                        echo "<blockquote class='message'>$submission->description.</blockquote>";
+                                        echo "<blockquote class='message'>$submission->description</blockquote>";
                                         echo "</a>";
                                         echo "</p>";
                                         echo "</br>";
+                                        echo "<i class=\"fa fa-thumbs-up\" aria-hidden=\"true\">Like</i>";
+                                        echo "<i style=\"margin-left: 30px;\" class=\"fa fa-thumbs-down\" aria-hidden=\"true\">Dislike</i>";
                                         echo "</div>";
                                         echo "</li>";
 
