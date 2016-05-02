@@ -60,7 +60,7 @@ class add_submission extends CI_Controller
         ];
         $this->load->model("submission");
         $this->submission->insert_submission($array);
-
+        echo $comment;
     }
 
 }

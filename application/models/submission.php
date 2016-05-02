@@ -30,9 +30,18 @@ class submission extends CI_Model{
     }
     public function get_submissions()
     {
-        $submission=$this->db->get('tbl_Submissions');
+        $submission=$this->db->get('table_submission');
         $data=$submission->result();
         return $data;
+    }
+    public function submission_count()
+    {
+        $sql="select COUNT(*) as count from table_submission";
+        $query=$this->db->query($sql);
+        foreach ($query->result() as $item)
+        {
+            return $item->count;
+        }
     }
 
 

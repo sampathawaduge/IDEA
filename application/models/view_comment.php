@@ -30,12 +30,13 @@ class view_comment extends CI_Model
         return $sub1;
     }
 
-//    public function idea($val)
-//    {
-//        if($this->db->insert('tbl_Commentts',$val))
-//        {
-//            echo true;
-//        }
-//    }
+    public function count_comments()
+    {
+        $sql="select count(*) as count from table_comment";
+        $count=$this->db->query($sql);
+        foreach ($count->result() as $item){
+            return $item->count;
+        }
+    }
 }
 ?>

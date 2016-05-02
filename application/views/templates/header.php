@@ -26,6 +26,10 @@
 
 <!--    <script src="--><?php //echo base_url('assets/js/jquery.min.js')?><!--"></script>-->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
     <!--[if lt IE 9]>
     <!--<script src="../assets/js/ie8-responsive-file-warning.js"></script>-->
@@ -41,6 +45,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
     <script src="<?php echo base_url('assets/js/submit.js')?>"></script>
     <script src="<?php echo base_url('assets/js/comment.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/edit_delete.js')?>"></script>
 
     <!--    <script src="--><?php //base_url('assets/js/prototype.js')?><!--"></script>-->
 <!--    <script src="--><?php //base_url('assets/js/scriptaculous.js')?><!--"></script>-->

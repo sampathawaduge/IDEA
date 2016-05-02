@@ -175,7 +175,7 @@
             <br>
 
             <div class="profile_title">
-                <div class="col-md-6">
+                <div class="col-md-15">
                     <h2>Submissions</h2>
                     <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
@@ -194,14 +194,33 @@
                                 echo "<p class='url'>";
                                 echo "<h4 class='heading'>$submission->submission_user</h4>";
                                 echo "<div class='link'><blockquote class='message'>";
-                                echo $submission->description;
+                                echo "<div class='model' >$submission->description</div>";
                                 echo "</blockquote></div>";
                                 echo "</p>";
+                                echo "<input type='button' subid=\"$submission->submission_id\" class='btn btn-success EDIT' value='EDIT' ><input type='button' subid=\"$submission->submission_id\" class='btn btn-success DELETE' value='DELETE' ";
                                 echo "</br>";
                                 echo "</div>";
 
+                                echo "<div class=\"modal fade\" id=\"myModal\" role=\"dialog\">";
+                                echo "<div class=\"modal-dialog\">";
+                                echo "<div class=\"modal-content\">";
+                                echo "<div class=\"modal-header\">";
+                                echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
+                                echo "<h4 class=\"modal-title\">Submission</h4>";
+                                echo "</div>";
+                                echo "<div class=\"modal-body\">";
+                                echo "<div id=\"summernotemodel\"></div>";
+                                echo "</div>";
+                                echo "<div class=\"modal-footer\">";
+                                echo "<input style='margin-top:8px;' type='button' class='btn btn-default' value='Edit' id='edit'>";
+                                echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";
+                                echo "</div>";
+                                echo "</div>";
+                                echo "</div>";
+                                echo "</div>";
 
                                 echo "</li>";
+
 
                             }
                           ?>
