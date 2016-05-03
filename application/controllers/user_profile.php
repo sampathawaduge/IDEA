@@ -65,6 +65,19 @@ class User_profile extends CI_Controller
 
             $data['details'] = $details;
 
+                $mem = $this->userprof->memDetails($user);
+                $data['mem'] = $mem;
+                $count = $this->userprof->SubCount($user);
+
+                $data['count'] = $count;
+    //           echo ($count);
+               $x= $this->userprof->memType($user);
+                $data['x']=$x;
+
+
+
+
+
 //            $this->load->view("profile", $data);
             $this->load->view('templates/header');
             $this->load->view('profile', $data);
@@ -113,6 +126,16 @@ class User_profile extends CI_Controller
             $details = $this->userprof->getUserDetails($user);
 
             $data['details'] = $details;
+            $mem = $this->userprof->memDetails($user);
+            $data['mem'] = $mem;
+            $count = $this->userprof->SubCount($user);
+
+            $data['count'] = $count;
+//           echo ($count);
+            $x= $this->userprof->memType($user);
+            $data['x']=$x;
+
+
 
             $this->load->view('templates/header');
             $this->load->view('profile', $data);

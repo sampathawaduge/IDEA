@@ -60,10 +60,17 @@ class Register_controller extends CI_Controller
               'password' => $password,
               'category' => $category,
           ];
+          $array2=[
+              'id'=>$username,
+              'mem_type' => 'Basic Member',
+              'sub_count' => 'o',
+
+          ];
 
           $this->load->model("Register_model");
           if($this->Register_model->add_db($array,$email))
           {
+              $this->Register_model->add_db2($array2);
               $this->load->view('login.html');
           }
 

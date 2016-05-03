@@ -12,7 +12,7 @@ class Register_model extends CI_Model
     {
         parent::__construct();
     }
-    
+
     public function add_db($val,$mail)
     {
         $sql="select * from table_users where email = ?";
@@ -24,9 +24,14 @@ class Register_model extends CI_Model
         else
         {
             return $this->db->insert('table_users',$val);
+
         }
 
 
     }
+
+    public function add_db2($val2){
+        $this->db->insert('table_mem_details',$val2);
+    }
+
 }
-    

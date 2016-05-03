@@ -13,11 +13,11 @@ class Migration_user_categories extends CI_Migration
         $this->dbforge->add_field(array(
             'user_type'=>array(
                   'type'=>'VARCHAR',
-                  'constraint' => '255'
+                  'constraint' => '150'
               ),
               'user_category'=>array(
                   'type'=>'VARCHAR',
-                  'constraint' => '255'
+                  'constraint' => '150'
               ),
                 
           )

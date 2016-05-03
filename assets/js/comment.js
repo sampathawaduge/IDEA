@@ -32,7 +32,7 @@ $(document).ready(function(){
         var comment = $('#note').summernote('code');
         $.ajax({
 
-                url:"http://localhost:81/IDEA/index.php/Comment/add_comment",
+                url:"http://localhost/IDEA/index.php/Comment/add_comment",
                 type:"POST",
                 data:{min:min,date:today,comment:comment},
                 success:function(data)

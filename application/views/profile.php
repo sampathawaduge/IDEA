@@ -179,35 +179,54 @@
                                     <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Upload Profile Pictures</a>
                                     <br />
 
-                                    <!-- start skills -->
-                                    <h4>Skills</h4>
-                                    <ul class="list-unstyled user_data">
-                                        <li>
-                                            <p>Web Applications</p>
-                                            <div class="progress progress_sm">
-                                                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <p>Website Design</p>
-                                            <div class="progress progress_sm">
-                                                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <p>Automation & Testing</p>
-                                            <div class="progress progress_sm">
-                                                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <p>UI / UX</p>
-                                            <div class="progress progress_sm">
-                                                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <!-- end of skills -->
+                                    <!-- start member type -->
+                                    <?php
+                                    foreach ($mem as $row) {
+                                       echo "<h2 > . $row->mem_type  </h2 >";
+                                    echo "<ul class='list-unstyled user_data'' >";
+                                        echo "<li >";
+                                            echo"<p > Membership Progress </p >";
+                                        if ( $row->mem_type == 'Platinum Member'):
+                                            echo "<div class='progress progress_sm'' >";
+                                                echo "<div class='progress-bar bg-green' role = 'progressbar' data-transitiongoal = '100' ></div >";
+                                            echo" </div >";
+                                            echo "<span class=\"glyphicon glyphicon-king\" aria-hidden=\"true\"></span>";
+                                            echo "<span class='glyphicon-class'><h4>King Award for 100 IDEAS.</h4></span>";
+
+                                        elseif ($row->mem_type == 'Gold Member'):
+                                            echo "<div class='progress progress_sm'' >";
+                                            echo "<div class='progress-bar bg-green' role = 'progressbar' data-transitiongoal = '75' ></div >";
+                                            echo" </div >";
+                                            echo "<span class=\"glyphicon glyphicon-queen\" aria-hidden=\"true\"></span>";
+                                            echo "<span class='glyphicon-class'><h4>Queen Award for 75 IDEAS.</h4></span>";
+                                        elseif ($row->mem_type == 'Silver Member'):
+                                            echo "<div class='progress progress_sm'' >";
+                                            echo "<div class='progress-bar bg-green' role = 'progressbar' data-transitiongoal = '50' ></div >";
+                                            echo" </div >";
+                                            echo "<span class=\"glyphicon glyphicon-bishop\" aria-hidden=\"true\"></span>";
+                                            echo "<span class='glyphicon-class'><h4>Bishop Award for 50 IDEAS.</h4></span>";
+                                        elseif ($row->mem_type == 'Bronze Member'):
+                                            echo "<div class='progress progress_sm'' >";
+                                            echo "<div class='progress-bar bg-green' role = 'progressbar' data-transitiongoal = '25' ></div >";
+                                            echo" </div >";
+                                            echo "<span class=\"glyphicon glyphicon-knight\" aria-hidden=\"true\"></span>";
+                                            echo "<span class='glyphicon-class'><h4>Knight Award for 25 IDEAS.</h4></span>";
+
+
+                                        else:
+                                            echo "<div class='progress progress_sm'' >";
+                                            echo "<div class='progress-bar bg-green' role = 'progressbar' data-transitiongoal = '5' ></div >";
+                                            echo" </div >";
+                                            echo "<span class=\"glyphicon glyphicon-pawn\" aria-hidden=\"true\"></span>";
+                                            echo "<span class='glyphicon-class'><h4>Pawn Award for 10 IDEAS.</h4></span>";
+
+                                        endif;
+                                        echo"</li >";
+
+                                    echo "</ul >";
+                                    }
+                                    ?>
+                                    <!-- end of member type -->
 
                                 </div>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
@@ -215,13 +234,14 @@
                                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
                                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
 
-                                            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
+                                            <li role="presentation" class="active"><a href="#tab_content1" role="tab" id="profile-tab1" data-toggle="tab" aria-expanded="false">Profile</a>
+                                            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Play Games</a>
                                             </li>
                                         </ul>
                                         <div id="myTabContent" class="tab-content" >
 
 
-                                            <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                                            <div role="tabpanel" class="active tab-pane " id="tab_content1" aria-labelledby="profile-tab">
                                                 <form id="myform1" class="form-horizontal form-label-left" novalidate method="post" action="<?php echo site_url('/user_profile/adduserdata')?>">
 
                                                     <span class="section">Personal Info</span>
@@ -276,6 +296,43 @@
                                                     </div>
                                                 </form>
                                             </div>
+
+                                            <div role="tabpane2" class=" tab-pane " id="tab_content2" aria-labelledby="profile-tab">
+                                                <span class="section">Available Games</span>
+
+
+
+                                                <form id="myform1" class="form-horizontal form-label-left" novalidate method="post">
+                                                <div class="item form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Slither.io
+                                                    </label>
+
+
+
+
+                                                    <?php if ($count >='10'): ?>
+
+                                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            <a href="http://slither.io/"class="btn btn-round btn-primary ">
+                                                                <i class="fa fa-play"></i> Play
+                                                            </a>
+                                                        </div>
+
+                                                        <?php else: ?>
+
+                                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            <a href="http://slither.io/"class="btn btn-round btn-primary disabled ">
+                                                                <i class="fa fa-play"></i> Play
+                                                            </a>
+                                                        </div>
+
+                                                    <?php endif; ?>
+                                                </div>
+
+                                                </form>
+
+
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -285,15 +342,7 @@
                 </div>
             </div>
 
-            <!-- footer content -->
-            <footer>
-                <div class="copyright-info">
-                    <p class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-                    </p>
-                </div>
-                <div class="clearfix"></div>
-            </footer>
-            <!-- /footer content -->
+
 
         </div>
         <!-- /page content -->
