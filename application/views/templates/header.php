@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css1/maps/jquery-jvectormap-2.0.3.css')?>" />
     <link href="<?php echo base_url('assets/css1/icheck/flat/green.css')?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css1/floatexamples.css')?>" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/css/sweetalert.css')?>" rel="stylesheet">
 
 <!--    <script src="--><?php //echo base_url('assets/js/jquery.min.js')?><!--"></script>-->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
@@ -46,6 +47,8 @@
     <script src="<?php echo base_url('assets/js/submit.js')?>"></script>
     <script src="<?php echo base_url('assets/js/comment.js')?>"></script>
     <script src="<?php echo base_url('assets/js/edit_delete.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/Admin_Edit_Delete_Submission.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/sweetalert.min.js')?>"></script>
 
     <!--    <script src="--><?php //base_url('assets/js/prototype.js')?><!--"></script>-->
 <!--    <script src="--><?php //base_url('assets/js/scriptaculous.js')?><!--"></script>-->

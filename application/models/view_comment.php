@@ -38,5 +38,13 @@ class view_comment extends CI_Model
             return $item->count;
         }
     }
+    public function viewallcomments()
+    {
+        $sql="select * from table_comment";
+        $result=$this->db->query($sql);
+        $data=$result->result();
+        return $data;
+    }
+
 }
 ?>

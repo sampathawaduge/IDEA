@@ -16,4 +16,18 @@ class Delete_submission_controller extends CI_Controller
         $this->load->model('Delete_submission_model');
         echo $this->Delete_submission_model->delete($id);
     }
+//    public function deletefromadmin()
+//    {
+//        $id=$this->uri->segment(3);
+//        echo $id;
+//    }
+    public function delete_com()
+    {
+        $id=$this->input->post('id');
+
+        $this->load->model('Delete_comment_model');
+        echo $this->Delete_comment_model->delete($id);
+    }
+    
+
 }

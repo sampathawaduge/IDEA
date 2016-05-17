@@ -31,6 +31,14 @@ class Migration_register_user extends CI_Migration
                     'type'=>'VARCHAR',
                     'constraint' => '255'
                 ),
+                'telephone'=>array(
+                    'type'=>'VARCHAR',
+                    'constraint' => '10'
+                ),
+                'picture'=>array(
+                    'type'=>'VARCHAR',
+                    'constraint' => '55'
+                )
           )
         );
         $this->dbforge->add_key('email',TRUE);

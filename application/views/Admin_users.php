@@ -1,4 +1,3 @@
-
 <div class="container body">
 
 
@@ -32,6 +31,9 @@
                     <div class="menu_section">
                         <h3>General</h3>
                         <ul class="nav side-menu">
+                            <li>
+                                <a href="<?php echo site_url('/Admin');?>"><i class="fa fa-home"></i>Graphs<span class="fa fa-chevron-right"></span></a>
+                            </li>
                             <li>
                                 <a href="<?php echo site_url('/Admin/Submission');?>"><i class="fa fa-home"></i>Submissions<span class="fa fa-chevron-right"></span></a>
                             </li>
@@ -81,61 +83,37 @@
         <!-- page content -->
         <div class="right_col" role="main">
 
-            <div id="chart_div" style="margin-top:80px;"></div>
+            <div class="container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Category</th>
+                        <th>Occupation</th>
+                        <th>TelephoneNo</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                        foreach ($users as $item)
+                        {
+                            echo "<tr>
+                            <td>".$item->name."</td>
+                            <td>".$item->email."</td>
+                            <td>".$item->category."</td>
+                            <td>".$item->occupation."</td>
+                            <td>".$item->telephone."</td>
+                            <td><i class=\"fa fa-search\" aria-hidden=\"true\"></i></td>
+                           <td><input type=\"button\" class=\"btn btn-primary Deleteuser\" email=$item->email value=\"Delete\" ></td>
+                            </tr>";
+                        }
+                    ?>
+                     </tbody>
+                </table>
+            </div>
 
-       </div>
-     </div>
+
+        </div>
+    </div>
 </div>
-<script>
-    $(document).ready(function(){
-        $.ajax({
-            type:"GET",
-            url:"http://localhost:81/IDEA/index.php/Admin/showcharts",
-            dataType:"text",
-            success:function(data) {
-
-                var obj = JSON.parse(data);
-                var usercount = parseInt(obj.usercount);
-                var subcount = parseInt(obj.subcount);
-                var comcount = parseInt(obj.comcount);
-
-
-                // Load the Visualization API and the corechart package.
-                google.charts.load('current', {'packages': ['corechart']});
-
-                // Set a callback to run when the Google Visualization API is loaded.
-                google.charts.setOnLoadCallback(drawChart);
-
-                // Callback that creates and populates a data table,
-                // instantiates the pie chart, passes in the data and
-                // draws it.
-                function drawChart() {
-
-                    // Create the data table.
-                    var data = new google.visualization.DataTable();
-                    data.addColumn('string', 'Topping');
-                    data.addColumn('number', 'Slices');
-                    data.addRows([
-                        ['Users', usercount],
-                        ['Submissions', subcount],
-                        ['Comments', comcount]
-                    ]);
-
-                    // Set chart options
-                    var options = {
-                        'title': 'Over role progress of the site',
-                        'width': 500,
-                        'height': 500
-                    };
-
-                    // Instantiate and draw our chart, passing in some options.
-                    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-                    chart.draw(data, options);
-                }
-            }
-
-
-
-        })
-    });
-</script>

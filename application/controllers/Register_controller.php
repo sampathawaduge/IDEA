@@ -61,9 +61,21 @@ class Register_controller extends CI_Controller
               'category' => $category,
           ];
 
+          ///starts of Iruka's parts
+          $array2=[
+              'id'=>$username,
+              'mem_type' => 'Basic Member',
+//              'sub_count' => 'o',
+
+          ];
+          //ends of iruka's part
+
           $this->load->model("Register_model");
           if($this->Register_model->add_db($array,$email))
           {
+              //start of Iruka parts
+              $this->Register_model->add_db2($array2);
+              //ends of Iruka's part
               $this->load->view('login.html');
           }
 

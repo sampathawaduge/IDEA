@@ -24,6 +24,15 @@
 
                     $com = $this->view_comment->view_comment($sub_id);
 
+                    if($this->uri->segment(4)!=null) {
+                        $com_id = $this->uri->segment(4);
+                        $this->load->model("vote_model");
+                        $up_count = $this->vote_model->show_up($sub_id, $com_id);
+                        $down_count = $this->vote_model->show_down($sub_id, $com_id);
+                        $data['up_count'] = $up_count;
+                        $data['down_count'] = $down_count;
+                    }
+
                     $data['sub'] = $sub;
                     $data['com'] = $com;
 
@@ -54,6 +63,7 @@
 
 
             }
+
 
 
 

@@ -26,5 +26,20 @@ class Edit_submission_controller extends CI_Controller
         echo $this->Edit_submission_model->update($array,$subid);
         
     }
+    public function edit_comment()
+    {
+        $comment=$this->input->post('comment');
+        $date=$this->input->post('date');
+        $minutes=$this->input->post('min');
+        $comid=$this->input->post('id');
+
+        $array=[
+            'comment_date'=>$date,
+            'comment_time'=>$minutes,
+            'comment'=>$comment
+        ];
+        $this->load->model("Edit_comment_model");
+        echo $this->Edit_comment_model->update($array,$comid);
+    }
 
 }

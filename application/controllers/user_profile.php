@@ -65,9 +65,20 @@ class User_profile extends CI_Controller
 
             $data['details'] = $details;
 
+            //start of iruka's part
+            $mem = $this->userprof->memDetails($user);
+            $data['mem'] = $mem;
+            $count = $this->userprof->SubCount($user);
+
+            $data['count'] = $count;
+            //           echo ($count);
+            $x= $this->userprof->memType($user);
+            $data['x']=$x;
+            //ends of iruka's part
+
 //            $this->load->view("profile", $data);
             $this->load->view('templates/header');
-            $this->load->view('profile', $data);
+            $this->load->view('profile1', $data);
             $this->load->view('templates/footer');
 
 
@@ -114,8 +125,20 @@ class User_profile extends CI_Controller
 
             $data['details'] = $details;
 
+            //start of iruka's part
+            $mem = $this->userprof->memDetails($user);
+            $data['mem'] = $mem;
+            $count = $this->userprof->SubCount($user);
+
+            $data['count'] = $count;
+//           echo ($count);
+            $x= $this->userprof->memType($user);
+            $data['x']=$x;
+            //ends of iruka's part
+
+
             $this->load->view('templates/header');
-            $this->load->view('profile', $data);
+            $this->load->view('profile1', $data);
             $this->load->view('templates/footer');
         }
 

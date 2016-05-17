@@ -1,3 +1,67 @@
+<link href="<?php echo base_url('assets/css/star-rating.css')?>" rel="stylesheet">
+<link href="<?php echo base_url('assets/css/theme-krajee-fa.css')?>" rel="stylesheet">
+<script src="<?php echo base_url('assets/js/star-rating.js')?>"></script>
+
+
+<script type="text/javascript">
+
+
+    function rate() {
+
+
+        var id = $('#submission').val();
+        var rating = $('#rating').val();
+        //var ratings = getRatings({{ DB::table('rating')->count() }});
+
+
+        alert(id);
+        alert(rating);
+
+
+        var sendData = JSON.stringify({
+            votes: 1,
+            ratings: ratings,
+            id: id,
+            _token: "{{ csrf_token() }}"
+        });
+
+        $.ajax({
+            url:"http://localhost:8/IDEA/index.php/add_submission/star_rating",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            type: "POST",
+            data: sendData,
+            success: function (result) {
+
+            if (result == 'true') {
+
+                alert("Rate successfully!");
+                location.reload();
+
+            }
+
+            if (result == 'false') {
+
+                alert("Unable to Rate");
+            }
+
+        },
+
+        error: function (request, status, error) {
+
+        }
+    });
+
+
+        return false;
+
+    }
+
+
+
+
+</script>
+
 <div class="container body">
 
 
@@ -120,6 +184,15 @@
                     echo "</a>";
                     echo "</p>";
                     echo "</br>";
+                    //chariya
+                    echo "<div class=\"rating\"><input id=\"rating\" value=\"0\" type=\"number\"
+//                                           class=\"rating form-control\" min=0 max=10 step=1 data-size=\"xs\"></div>";
+//
+//                    echo "</div>";
+                    echo "<input id=\"submission\" type=\"hidden\" value=\"$submission->submission_id\">";
+//
+                    echo "<button type=\"submit\"id=\"rate_button\"  onclick=\" return rate()\">Rate</button> ";
+//                    //chariya
                     echo "</div>";
                     echo "</li>";
                 }
@@ -127,6 +200,30 @@
             </ul>
             <div id="note"></div>
             <input type="button" class="btn btn-primary" value="Add" id="comment">
+<!--            <ul class='messages'>-->
+<!--                --><?php
+//                foreach ($com as $comment) {
+//                    echo "<li>";
+//                    echo "<img src='".base_url('assets/images1/img.jpg')."' class='avatar' alt='Avatar'>";
+//                    echo "<div class='message_date'>";
+//                    echo "<h5 class='date text-info'>$comment->comment_time</h5>";
+//                    echo " <p class='month'>$comment->comment_date</p>";
+//                    echo "</div>";
+//                    echo "<div class='message_wrapper'>";
+//                    echo "<p class='url'>";
+//                    echo "<h5 class='heading'>$comment->comment_user</h5>";
+//                    echo "<a href='".site_url('/comment/show/'.$submission->submission_id)."'>";
+//                    echo "<blockquote class='message'>$comment->comment</blockquote>";
+//                    echo "</a>";
+//                    echo "</p>";
+//                    echo "</br>";
+//                    echo "<i class=\"fa fa-thumbs-up\" aria-hidden=\"true\">Like</i>";
+//                    echo "<i style=\"margin-left: 30px;\" class=\"fa fa-thumbs-down\" aria-hidden=\"true\">Dislike</i>";
+//                    echo "</div>";
+//                    echo "</li>";
+//                }
+//                ?>
+<!--            </ul>-->
             <ul class='messages'>
                 <?php
                 foreach ($com as $comment) {
@@ -139,13 +236,25 @@
                     echo "<div class='message_wrapper'>";
                     echo "<p class='url'>";
                     echo "<h5 class='heading'>$comment->comment_user</h5>";
-                    echo "<a href='".site_url('/comment/show/'.$submission->submission_id)."'>";
+                    echo "<a href='".site_url('/comment/show/'.$submission->submission_id)."/".$comment->comment_id."'>";
                     echo "<blockquote class='message'>$comment->comment</blockquote>";
                     echo "</a>";
                     echo "</p>";
                     echo "</br>";
-                    echo "<i class=\"fa fa-thumbs-up\" aria-hidden=\"true\">Like</i>";
-                    echo "<i style=\"margin-left: 30px;\" class=\"fa fa-thumbs-down\" aria-hidden=\"true\">Dislike</i>";
+                    if(($this->uri->segment(4)!=null) && ($comment->comment_id == $this->uri->segment(4) )) {
+                        echo "<a href='".site_url('/vote_controller/upvote/'.$submission->submission_id)."/".$comment->comment_id."/".$this->session->userdata['username']."/1'>";
+                        echo "<button type=\"button\" class=\"btn btn-danger\" id=\"like\" value='1'><i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i><span> </span>";
+                        foreach ($up_count as $vote) {
+                            echo "$vote->up_vote_count";
+                        }
+                        echo "</button></a>";
+                        echo "<a href='".site_url('/vote_controller/upvote/'.$submission->submission_id)."/".$comment->comment_id."/".$this->session->userdata['username']."/0'>";
+                        echo "<button type=\"button\" class=\"btn btn-danger\" id=\"dislike\" value='0'><i class=\"fa fa-thumbs-o-down\" aria-hidden=\"true\"></i><span> </span>";
+                        foreach ($down_count as $dvote) {
+                            echo "$dvote->down_vote_count";
+                        }
+                        echo "</button></a>";
+                    }
                     echo "</div>";
                     echo "</li>";
                 }

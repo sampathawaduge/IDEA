@@ -28,5 +28,10 @@ class Register_model extends CI_Model
 
 
     }
+    //sarts of iruka's part
+    public function add_db2($val2){
+        $this->db->insert('table_mem_details',$val2);
+    }
+    //ends of iruka's part
 }
     
