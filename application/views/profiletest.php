@@ -85,7 +85,7 @@
                 var out = "";
                 var i;
                 for(i = 0; i < obj.length; i++) {
-                    out += '<li>new comment ' + obj[i].notification + ' on submission ' + obj[i].submissionid + '</li><br>';
+                    out += '<a href="<?php site_url('/Comment/show/')?>"><li>new comment ' + obj[i].notification + ' on submission ' + obj[i].submission_id + '</li></a><br>';
                 }
                 //    out += '<a href="">View all comments</a>';
                 //   out += '<a  class="btn btn-success" id="mark_read">Mark All As Read</a>'
@@ -157,11 +157,37 @@
 
 </script>
 
-
 <div class="container body">
 
 
     <div class="main_container">
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <?php echo  form_open_multipart('user_profile/uploadImage')?>
+
+                        <input type="file" name="userfile" />
+
+                        <p><input type="submit" name="submit" value="submit" /></p>
+
+                        <?php echo form_close();?>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
@@ -275,6 +301,91 @@
                             </ul>
                         </li>
 
+                        <li role="presentation" class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-envelope-o"></i>
+                                <span id="notification_count" class="badge bg-green">6</span>
+                            </a>
+
+                        <div class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
+                            <ul id="menu1">
+
+                                <li>
+                                    <a>
+                      <span class="image">
+                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
+                                    </span>
+                      <span>
+                                        <span>John Smith</span>
+                      <span class="time">3 mins ago</span>
+                      </span>
+                      <span class="message">
+                                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                                    </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                      <span class="image">
+                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
+                                    </span>
+                      <span>
+                                        <span>John Smith</span>
+                      <span class="time">3 mins ago</span>
+                      </span>
+                      <span class="message">
+                                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                                    </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                      <span class="image">
+                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
+                                    </span>
+                      <span>
+                                        <span>John Smith</span>
+                      <span class="time">3 mins ago</span>
+                      </span>
+                      <span class="message">
+                                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                                    </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                      <span class="image">
+                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
+                                    </span>
+                      <span>
+                                        <span>John Smith</span>
+                      <span class="time">3 mins ago</span>
+                      </span>
+                      <span class="message">
+                                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                                    </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="text-center">
+                                        <a>
+                                            <strong>See All Alerts</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="text-center">
+
+                                <a href="<?php echo site_url('user_profile/msgread')?>" ><strong>Mark all as read</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+
+
+
+                            </ul>
+                        </div>
+
 
 
                     </ul>
@@ -311,7 +422,6 @@
                                             <!-- Current avatar -->
                                             <div class="avatar-view" title="Change the avatar">
                                                 <img src="<?=base_url(). 'images/' . $profile;?>" alt="Avatar">
-
                                             </div>
 
 
@@ -349,19 +459,21 @@
 
                                     </ul>
 
-                                    <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Upload Profile Pictures</a>
+
+
+                                    <a class="btn btn-success" id="edit_prof" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
                                     <br />
 
                                     <!-- start member type -->
                                     <?php
                                     foreach ($mem as $row) {
-                                        echo "<h2 > . $row->mem_type  </h2 >";
-                                        echo "<ul class='list-unstyled user_data'' >";
+                                       echo "<h2 > . $row->mem_type  </h2 >";
+                                    echo "<ul class='list-unstyled user_data'' >";
                                         echo "<li >";
-                                        echo"<p > Membership Progress </p >";
+                                            echo"<p > Membership Progress </p >";
                                         if ( $row->mem_type == 'Platinum Member'):
                                             echo "<div class='progress progress_sm'' >";
-                                            echo "<div class='progress-bar bg-green' role = 'progressbar' data-transitiongoal = '100' ></div >";
+                                                echo "<div class='progress-bar bg-green' role = 'progressbar' data-transitiongoal = '100' ></div >";
                                             echo" </div >";
                                             echo "<span class=\"glyphicon glyphicon-king\" aria-hidden=\"true\"></span>";
                                             echo "<span class='glyphicon-class'><h4>King Award for 100 IDEAS.</h4></span>";
@@ -396,7 +508,7 @@
                                         endif;
                                         echo"</li >";
 
-                                        echo "</ul >";
+                                    echo "</ul >";
                                     }
                                     ?>
                                     <!-- end of member type -->
@@ -476,36 +588,36 @@
 
 
                                                 <form id="myform1" class="form-horizontal form-label-left" novalidate method="post">
-                                                    <div class="item form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Slither.io
-                                                        </label>
+                                                <div class="item form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Slither.io
+                                                    </label>
 
 
 
 
-                                                        <?php if ($count >='10'): ?>
+                                                    <?php if ($count >='10'): ?>
 
-                                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <a href="http://slither.io/"class="btn btn-round btn-primary ">
-                                                                    <i class="fa fa-play"></i> Play
-                                                                </a>
-                                                            </div>
+                                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            <a href="http://slither.io/"class="btn btn-round btn-primary ">
+                                                                <i class="fa fa-play"></i> Play
+                                                            </a>
+                                                        </div>
 
                                                         <?php else: ?>
 
-                                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <a href="http://slither.io/"class="btn btn-round btn-primary disabled ">
-                                                                    <i class="fa fa-play"></i> Play
-                                                                </a>
-                                                            </div>
+                                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            <a href="http://slither.io/"class="btn btn-round btn-primary disabled ">
+                                                                <i class="fa fa-play"></i> Play
+                                                            </a>
+                                                        </div>
 
-                                                        <?php endif; ?>
-                                                    </div>
+                                                    <?php endif; ?>
+                                                </div>
 
                                                 </form>
 
 
-                                            </div>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>

@@ -43,6 +43,8 @@
                             </li>
                             <li ><a href="<?php echo site_url('/Admin/categories');?>"><i class="fa fa-desktop"></i>Edit Categories<span class="fa fa-chevron-down"></span></a>
                             </li>
+                            <li ><a href="#"><i class="fa fa-desktop"></i>Reports<span class="fa fa-chevron-down"></span></a>
+                            </li>
                         </ul>
                     </div>
 
@@ -104,7 +106,7 @@
                             <td>".$item->category."</td>
                             <td>".$item->occupation."</td>
                             <td>".$item->telephone."</td>
-                            <td><i class=\"fa fa-search\" aria-hidden=\"true\"></i></td>
+                            <td><i class=\"fa fa-envelope mail\" aria-hidden=\"true\" email=".$item->email."></i></td>
                            <td><input type=\"button\" class=\"btn btn-primary Deleteuser\" email=$item->email value=\"Delete\" ></td>
                             </tr>";
                         }
@@ -113,7 +115,70 @@
                 </table>
             </div>
 
+            <div id="mailmodel" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title" style="color:red">Submission Reporting</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label for="subject">Email Subject</label>
+                                <input type="text" class="form-control" id="subject">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="body">Email Body</label>
+                                <textarea class="form-control" rows="5" id="body" style="resize: none"></textarea>
+                            </div>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default sendmail" data-dismiss="modal">Send</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+
+        $('.mail').click(function(){
+
+            $("#mailmodel").modal();
+
+            var mail=$(this).attr("email");
+
+            $('.sendmail').click(function(){
+
+                var subject=$("#subject").val();
+                var body=$("#body").val();
+                if(!subject & !body)
+                {
+                    console.log("fail");
+                }
+                else
+                {
+                    $.ajax({
+                        url:"http://localhost:81/IDEA/index.php/Email",
+                        type:"POST",
+                        data:{mail:mail,subject:subject,body:body},
+                        success:function(data){
+                            alert(data);
+                        }
+                    })
+                }
+            })
+
+        })
+    })
+</script>

@@ -58,8 +58,19 @@
                     'comment'=>$comment
                 ];
 
+                $data=[
+                    'notification'=>$comment,
+                    'status'=>'unread',
+                    'user'=>$this->session->userdata['username'],
+                    'submission_id'=>$submissionid
+                ];
+                
                 $this->load->model("Add_comment");
                 $this->Add_comment->insert_comment($array);
+
+
+                $this->load->model('userprof');
+                $this->userprof->insert($data);
 
 
             }

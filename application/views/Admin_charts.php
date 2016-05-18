@@ -43,6 +43,8 @@
                             </li>
                             <li ><a href="<?php echo site_url('/Admin/categories');?>"><i class="fa fa-desktop"></i>Edit Categories<span class="fa fa-chevron-down"></span></a>
                             </li>
+                            <li ><a href="#"><i class="fa fa-desktop"></i>Reports<span class="fa fa-chevron-down"></span></a>
+                            </li>
                         </ul>
                     </div>
 
