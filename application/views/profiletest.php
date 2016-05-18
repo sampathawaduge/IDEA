@@ -1,4 +1,4 @@
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js" xmlns="http://www.w3.org/1999/html"></script>
 
 <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
 <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
@@ -85,7 +85,7 @@
                 var out = "";
                 var i;
                 for(i = 0; i < obj.length; i++) {
-                    out += '<a href="<?php site_url('/Comment/show/')?>"><li>new comment ' + obj[i].notification + ' on submission ' + obj[i].submission_id + '</li></a><br>';
+                    out += '<li>new comment ' + obj[i].notification + ' on submission ' + obj[i].submission_id + '</li><br>';
                 }
                 //    out += '<a href="">View all comments</a>';
                 //   out += '<a  class="btn btn-success" id="mark_read">Mark All As Read</a>'
@@ -307,84 +307,84 @@
                                 <span id="notification_count" class="badge bg-green">6</span>
                             </a>
 
-                        <div class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
-                            <ul id="menu1">
+                            <div class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
+                                <ul id="menu1">
 
-                                <li>
-                                    <a>
-                      <span class="image">
-                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                      <span class="image">
-                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                      <span class="image">
-                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                      <span class="image">
-                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="text-center">
+                                    <li>
                                         <a>
-                                            <strong>See All Alerts</strong>
-                                            <i class="fa fa-angle-right"></i>
+                      <span class="image">
+                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
+                                    </span>
+                      <span>
+                                        <span>John Smith</span>
+                      <span class="time">3 mins ago</span>
+                      </span>
+                      <span class="message">
+                                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                                    </span>
                                         </a>
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul class="text-center">
+                                    </li>
+                                    <li>
+                                        <a>
+                      <span class="image">
+                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
+                                    </span>
+                      <span>
+                                        <span>John Smith</span>
+                      <span class="time">3 mins ago</span>
+                      </span>
+                      <span class="message">
+                                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                                    </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                      <span class="image">
+                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
+                                    </span>
+                      <span>
+                                        <span>John Smith</span>
+                      <span class="time">3 mins ago</span>
+                      </span>
+                      <span class="message">
+                                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                                    </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                      <span class="image">
+                                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="Profile Image" />
+                                    </span>
+                      <span>
+                                        <span>John Smith</span>
+                      <span class="time">3 mins ago</span>
+                      </span>
+                      <span class="message">
+                                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                                    </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="text-center">
+                                            <a>
+                                                <strong>See All Alerts</strong>
+                                                <i class="fa fa-angle-right"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="text-center">
 
-                                <a href="<?php echo site_url('user_profile/msgread')?>" ><strong>Mark all as read</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
+                                    <a href="<?php echo site_url('user_profile/msgread')?>" ><strong>Mark all as read</strong>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
 
 
 
-                            </ul>
-                        </div>
+                                </ul>
+                            </div>
 
 
 
@@ -465,52 +465,75 @@
                                     <br />
 
                                     <!-- start member type -->
+                                    <h3 class="section">Award Cabinet.</h3>
+                                    <div class="panel panel-danger">
+                                        <div class="panel-body">
                                     <?php
                                     foreach ($mem as $row) {
-                                       echo "<h2 > . $row->mem_type  </h2 >";
-                                    echo "<ul class='list-unstyled user_data'' >";
+                                        echo "<h2 > . $row->mem_type  </h2 >";
+                                        echo "<ul class='list-unstyled user_data'' >";
                                         echo "<li >";
-                                            echo"<p > Membership Progress </p >";
+                                        echo"<p > Membership Progress </p >";
                                         if ( $row->mem_type == 'Platinum Member'):
-                                            echo "<div class='progress progress_sm'' >";
-                                                echo "<div class='progress-bar bg-green' role = 'progressbar' data-transitiongoal = '100' ></div >";
+                                            echo "<div class='progress progress_sm' >";
+                                            echo "<div class='progress-bar bg-green' role = 'progressbar' data-transitiongoal = '100' ></div >";
                                             echo" </div >";
                                             echo "<span class=\"glyphicon glyphicon-king\" aria-hidden=\"true\"></span>";
                                             echo "<span class='glyphicon-class'><h4>King Award for 100 IDEAS.</h4></span>";
 
                                         elseif ($row->mem_type == 'Gold Member'):
-                                            echo "<div class='progress progress_sm'' >";
+                                            echo "<div class='progress progress_sm' >";
                                             echo "<div class='progress-bar bg-green' role = 'progressbar' data-transitiongoal = '75' ></div >";
                                             echo" </div >";
                                             echo "<span class=\"glyphicon glyphicon-queen\" aria-hidden=\"true\"></span>";
-                                            echo "<span class='glyphicon-class'><h4>Queen Award for 75 IDEAS.</h4></span>";
+                                            echo "<span class='glyphicon-class'><h4>Queen Award for 50 IDEAS.</h4></span>";
                                         elseif ($row->mem_type == 'Silver Member'):
-                                            echo "<div class='progress progress_sm'' >";
+                                            echo "<div class='progress progress_sm' >";
                                             echo "<div class='progress-bar bg-green' role = 'progressbar' data-transitiongoal = '50' ></div >";
                                             echo" </div >";
                                             echo "<span class=\"glyphicon glyphicon-bishop\" aria-hidden=\"true\"></span>";
-                                            echo "<span class='glyphicon-class'><h4>Bishop Award for 50 IDEAS.</h4></span>";
+                                            echo "<span class='glyphicon-class'><h4>Bishop Award for 25 IDEAS.</h4></span>";
                                         elseif ($row->mem_type == 'Bronze Member'):
-                                            echo "<div class='progress progress_sm'' >";
+                                            echo "<div class='progress progress_sm' >";
                                             echo "<div class='progress-bar bg-green' role = 'progressbar' data-transitiongoal = '25' ></div >";
                                             echo" </div >";
                                             echo "<span class=\"glyphicon glyphicon-knight\" aria-hidden=\"true\"></span>";
-                                            echo "<span class='glyphicon-class'><h4>Knight Award for 25 IDEAS.</h4></span>";
+                                            echo "<span class='glyphicon-class'><h4>Knight Award for 10 IDEAS.</h4></span>";
 
 
                                         else:
-                                            echo "<div class='progress progress_sm'' >";
+                                            echo "<div class='progress progress_sm' >";
                                             echo "<div class='progress-bar bg-green' role = 'progressbar' data-transitiongoal = '5' ></div >";
                                             echo" </div >";
                                             echo "<span class=\"glyphicon glyphicon-pawn\" aria-hidden=\"true\"></span>";
-                                            echo "<span class='glyphicon-class'><h4>Pawn Award for 10 IDEAS.</h4></span>";
+                                            echo "<span class='glyphicon-class'><h4>Pawn Award for Basic Member.</h4></span>";
 
                                         endif;
                                         echo"</li >";
 
-                                    echo "</ul >";
+                                        echo "</ul >";
                                     }
                                     ?>
+                                            </div>
+                                        </div>
+                                    </br>
+                                    <h3 class="section">Medal Cabinet.</h3>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-body">
+                                        <?php if ($comm >='10'): ?>
+                                        <div class="row">
+                                            <img class=" col-sm-6"src="<?php echo base_url('assets/images1/badges.png')?>" >
+                                            <h5 class=" col-sm-6">For Commenting more than 10 comments.</h5>
+                                        </div>
+                                        <?php endif; ?>
+                                        <?php if ($like >='10'): ?>
+                                        <div class="row">
+                                            <img class=" col-sm-6"src="<?php echo base_url('assets/images1/badge3.png')?>" >
+                                            <h5 class=" col-sm-6">For Liking  more than 10 posts.</h5>
+                                        </div>
+                                        <?php endif; ?>
+                                        </div>
+                                    </div>
                                     <!-- end of member type -->
 
                                 </div>
@@ -588,36 +611,153 @@
 
 
                                                 <form id="myform1" class="form-horizontal form-label-left" novalidate method="post">
-                                                <div class="item form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Slither.io
-                                                    </label>
+                                                    <div class="item form-group col-md-12">
+                                                        <span class=" section col-md-12"><h4>Publish more IDEAS to Play!!!!</h4></span>
+                                                        <label class="control-label col-md-4 pull-left" for="name"> Cursors.io
+                                                        </label>
 
 
 
 
-                                                    <?php if ($count >='10'): ?>
+                                                        <?php if ($count >='10'): ?>
 
-                                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <a href="http://slither.io/"class="btn btn-round btn-primary ">
-                                                                <i class="fa fa-play"></i> Play
-                                                            </a>
-                                                        </div>
+                                                            <div class="col-md-6 ">
+                                                                <a href="http://cursors.io/"class="btn btn-round btn-primary ">
+                                                                    <i class="fa fa-play"></i> Play
+                                                                </a>
+                                                            </div>
 
                                                         <?php else: ?>
 
-                                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <a href="http://slither.io/"class="btn btn-round btn-primary disabled ">
-                                                                <i class="fa fa-play"></i> Play
-                                                            </a>
-                                                        </div>
+                                                            <div class="col-md-6 ">
+                                                                <a href="http://cursors.io/"class="btn btn-round btn-danger disabled ">
+                                                                    <i class="fa fa-play"></i> Play
+                                                                </a>
 
-                                                    <?php endif; ?>
-                                                </div>
+                                                            </div>
+
+                                                        <?php endif; ?>
+
+                                                    </div>
+
+                                                    <div class="item form-group col-md-12 ">
+                                                        <span class="section col-md-12"><h4>Like more to Play!!!!</h4></span>
+                                                        <label class="control-label col-md-4 pull-left" for="name">Agar.io
+                                                        </label>
+
+
+
+
+                                                        <?php if ($like >='10'): ?>
+
+                                                            <div class="col-md-6 ">
+                                                                <a href="http://agar.io/"class="btn btn-round btn-primary ">
+                                                                    <i class="fa fa-play"></i> Play
+                                                                </a>
+                                                            </div>
+
+                                                        <?php else: ?>
+
+                                                            <div class="col-md-6 ">
+                                                                <a href="http://agar.io/"class="btn btn-round btn-danger disabled ">
+                                                                    <i class="fa fa-play"></i> Play
+                                                                </a>
+                                                            </div>
+
+                                                        <?php endif; ?>
+
+                                                    </div>
+
+
+                                                    <div class="item form-group col-md-12 ">
+                                                        <span class=" section col-md-12"><h4>Comment more to Play!!!!</h4></span>
+                                                        <label class="control-label col-md-4 pull-left" for="name">Slither.io
+                                                        </label>
+
+
+
+
+                                                        <?php if ($comm >='10'): ?>
+
+                                                            <div class="col-md-6 ">
+                                                                <a href="http://slither.io/"class="btn btn-round btn-primary ">
+                                                                    <i class="fa fa-play"></i> Play
+                                                                </a>
+                                                            </div>
+
+                                                        <?php else: ?>
+
+                                                            <div class="col-md-6">
+                                                                <a href="http://slither.io/"class="btn btn-round btn-danger disabled ">
+                                                                    <i class="fa fa-play"></i> Play
+                                                                </a>
+                                                            </div>
+
+                                                        <?php endif; ?>
+
+                                                    </div>
+
+
+                                                    <div class="item form-group col-md-12">
+                                                        <span class=" section col-md-12"><h4>Become a Platinm Member!!!!</h4></span>
+                                                        <label class="control-label col-md-4 pull-left" for="name">Wings.io
+                                                        </label>
+
+
+                                                        <?php if ($count >='100'): ?>
+
+                                                            <div class="col-md-6 c">
+                                                                <a href="http://wings.io/"class="btn btn-round btn-primary ">
+                                                                    <i class="fa fa-play"></i> Play
+                                                                </a>
+                                                            </div>
+
+                                                        <?php else: ?>
+
+                                                            <div class="col-md-6 ">
+                                                                <a href="http://wings.io/"class="btn btn-round btn-danger disabled ">
+                                                                    <i class="fa fa-play"></i> Play
+                                                                </a>
+                                                            </div>
+
+                                                        <?php endif; ?>
+
+                                                    </div>
+
+
+                                                    <div class="item form-group col-md-12">
+                                                        <span class=" section col-md-12"><h4>Extra Games...</h4></span>
+                                                        <label class="control-label col-md-4 pull-left" for="name">Vanar.io
+                                                        </label>
+
+
+
+
+                                                        <?php if ($count <'10'): ?>
+
+                                                            <div class="col-md-6 ">
+                                                                <a href="http://vanar.io/"class="btn btn-round btn-primary ">
+                                                                    <i class="fa fa-play"></i> Play
+                                                                </a>
+                                                            </div>
+
+                                                        <?php else: ?>
+
+                                                            <div class="col-md-6 ">
+                                                                <a href="http://vanar.io/"class="btn btn-round btn-danger disabled ">
+                                                                    <i class="fa fa-play"></i> Play
+                                                                </a>
+                                                            </div>
+
+                                                        <?php endif; ?>
+
+
+                                                    </div>
 
                                                 </form>
 
 
-                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
