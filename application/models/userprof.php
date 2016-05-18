@@ -251,15 +251,7 @@ class userprof extends CI_Model{
     function SubCount($user)
     {
 
-//        $this->db->select_sum('submission_id');
-//
-//        $this->db->from('table_submission');
-//
-//        $this->db->where('submission_user', $user);
-//
-//        $query = $this->db->get();
-//
-//        $count = $query->row()->submission_id;
+
         $this->db->like('submission_user', $user);
         $this->db->from('table_submission');
         $count= $this->db->count_all_results();
@@ -270,6 +262,48 @@ class userprof extends CI_Model{
         {
 
             return $count;
+
+        }
+
+        return NULL;
+
+    }
+
+    function ComCount($user)
+    {
+
+
+        $this->db->like('comment_user', $user);
+        $this->db->from('table_comment');
+        $comm= $this->db->count_all_results();
+
+
+
+        if ($comm > 0)
+        {
+
+            return $comm;
+
+        }
+
+        return NULL;
+
+    }
+
+    function likeCount($user)
+    {
+
+
+        $this->db->like('user', $user);
+        $this->db->from('table_comment_vote');
+        $like= $this->db->count_all_results();
+
+
+
+        if ($like > 0)
+        {
+
+            return $like;
 
         }
 
@@ -316,7 +350,7 @@ class userprof extends CI_Model{
             $r= $this->db->update('table_mem_details', $data);
             return $r;
         }
-        else {
+        else if ($x >=10) {
 
             $data = array(
                 'mem_type' => 'Bronze Member',
