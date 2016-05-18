@@ -46,7 +46,7 @@ $(document).ready(function(){
 
             $.ajax({
 
-                url:"http://localhost:81/IDEA/index.php/add_submission/show",
+                url:"http://localhost/IDEA/index.php/add_submission/show",
                 type:"POST",
                 data:{min:min,date:today,comment:comment,subcat:selection},
                 success:function(data)
