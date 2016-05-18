@@ -37,11 +37,7 @@ class User_profile extends CI_Controller
             $x= $this->userprof->memType($user);
             $data['x']=$x;
 
-            $comm= $this->userprof->ComCount($user);
-            $data['comm']=$comm;
 
-            $like= $this->userprof->likeCount($user);
-            $data['like']=$like;
 
 
 
@@ -102,13 +98,6 @@ class User_profile extends CI_Controller
             $x= $this->userprof->memType($user);
             $data['x']=$x;
 
-            $comm= $this->userprof->ComCount($user);
-            $data['comm']=$comm;
-
-            $like= $this->userprof->likeCount($user);
-            $data['like']=$like;
-
-
 
 
             $this->load->view('templates/header');
@@ -160,21 +149,6 @@ class User_profile extends CI_Controller
 
             $details = $this->userprof->getUserDetails($user);
             $data['details'] = $details;
-
-            $mem = $this->userprof->memDetails($user);
-            $data['mem'] = $mem;
-            $count = $this->userprof->SubCount($user);
-
-            $data['count'] = $count;
-            //           echo ($count);
-            $x= $this->userprof->memType($user);
-            $data['x']=$x;
-
-            $comm= $this->userprof->ComCount($user);
-            $data['comm']=$comm;
-
-            $like= $this->userprof->likeCount($user);
-            $data['like']=$like;
 
             $this->load->view('templates/header');
             $this->load->view('profiletest', $data);
@@ -241,12 +215,6 @@ class User_profile extends CI_Controller
                 //           echo ($count);
                 $x= $this->userprof->memType($user);
                 $data['x']=$x;
-
-                $comm= $this->userprof->ComCount($user);
-                $data['comm']=$comm;
-
-                $like= $this->userprof->likeCount($user);
-                $data['like']=$like;
                 $this->load->view('templates/header');
                 $this->load->view('profiletest', $data);
                 $this->load->view('templates/footer');
@@ -368,12 +336,6 @@ class User_profile extends CI_Controller
             //           echo ($count);
             $x= $this->userprof->memType($user);
             $data['x']=$x;
-
-            $comm= $this->userprof->ComCount($user);
-            $data['comm']=$comm;
-
-            $like= $this->userprof->likeCount($user);
-            $data['like']=$like;
 
             $this->load->view('templates/header');
             $this->load->view('profiletest', $data);

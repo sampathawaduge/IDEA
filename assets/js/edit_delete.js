@@ -49,7 +49,7 @@ $(document).ready(function(){
             {
                 $.ajax({
 
-                    url:"http://localhost/IDEA/index.php/Edit_submission_controller/edit",
+                    url:"http://localhost:81/IDEA/index.php/Edit_submission_controller/edit",
                     type:"POST",
                     data:{min:min,date:today,comment:comment,id:subid},
                     success:function(data)
