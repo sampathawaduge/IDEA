@@ -6,21 +6,6 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
 
-                <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
-                </div>
-                <div class="clearfix"></div>
-
-                <!-- menu prile quick info -->
-                <div class="profile">
-                    <div class="profile_pic">
-                        <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="..." class="img-circle profile_img">
-                    </div>
-                    <div class="profile_info">
-                        <span>Welcome,</span>
-                        <h2>John Doe</h2>
-                    </div>
-                </div>
                 <!-- /menu prile quick info -->
 
                 <br />
@@ -39,12 +24,13 @@
                             </li>
                             <li><a href="<?php echo site_url('/Admin/Comments');?>"><i class="fa fa-edit"></i>Comments<span class="fa fa-chevron-right"></span></a>
                             </li>
-                            <li ><a href="<?php echo site_url('/Admin/Users');?>"><i class="fa fa-desktop"></i> Users <span class="fa fa-chevron-down"></span></a>
+                            <li ><a href="<?php echo site_url('/Admin/Users');?>"><i class="fa fa-user" aria-hidden="true"></i> Users <span class="fa fa-chevron-down"></span></a>
                             </li>
                             <li ><a href="<?php echo site_url('/Admin/categories');?>"><i class="fa fa-desktop"></i>Edit Categories<span class="fa fa-chevron-down"></span></a>
                             </li>
-                            <li ><a href="#"><i class="fa fa-desktop"></i>Reports<span class="fa fa-chevron-down"></span></a>
+                            <li ><a href="<?php echo site_url('/Admin/showreports');?>"><i class="fa fa-desktop"></i>Reports<span class="fa fa-chevron-down"></span></a>
                             </li>
+
                         </ul>
                     </div>
 
@@ -66,11 +52,11 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="">John Doe
+                                Admin
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                <li><a href="<?php echo site_url('/Login_controller/logout')?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                 </li>
                             </ul>
                         </li>
@@ -110,42 +96,34 @@
                            <td><input type=\"button\" class=\"btn btn-primary Deleteuser\" email=$item->email value=\"Delete\" ></td>
                             </tr>";
                         }
+
+                        echo "<div class=\"modal fade\" id=\"mailmodel\" role=\"dialog\">";
+                        echo "<div class=\"modal-dialog\">";
+                        echo "<div class=\"modal-content\">";
+                        echo "<div class=\"modal-header\">";
+                        echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
+                        echo "<h4 class=\"modal-title\">Submission</h4>";
+                        echo "</div>";
+                        echo "<div class=\"modal-body\">";
+                        echo "<div class=\"form-group\">";
+                        echo "<label for=\"subject\">Email Subject</label>";
+                        echo "<input type=\"text\" class=\"form-control\" id=\"subject\">";
+                        echo "</div>";
+                        echo "<div class=\"form-group\">";
+                        echo "<label for=\"body\">Email Body</label>";
+                        echo "<textarea class='form-control' rows='5' id='body' style='resize: none'></textarea>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "<div class=\"modal-footer\">";
+                        echo "<button type=\"button\" class=\"btn btn-default\" id=\"sendmail\" data-dismiss=\"modal\">Send</button>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
                     ?>
                      </tbody>
                 </table>
             </div>
-
-            <div id="mailmodel" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title" style="color:red">Submission Reporting</h4>
-                        </div>
-                        <div class="modal-body">
-
-                            <div class="form-group">
-                                <label for="subject">Email Subject</label>
-                                <input type="text" class="form-control" id="subject">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="body">Email Body</label>
-                                <textarea class="form-control" rows="5" id="body" style="resize: none"></textarea>
-                            </div>
-
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default sendmail" data-dismiss="modal">Send</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
         </div>
     </div>
 </div>
@@ -155,10 +133,10 @@
         $('.mail').click(function(){
 
             $("#mailmodel").modal();
-
+//
             var mail=$(this).attr("email");
-
-            $('.sendmail').click(function(){
+//
+            $('#sendmail').click(function(){
 
                 var subject=$("#subject").val();
                 var body=$("#body").val();
@@ -173,10 +151,15 @@
                         type:"POST",
                         data:{mail:mail,subject:subject,body:body},
                         success:function(data){
-                            alert(data);
+                            if(data)
+                            {
+                                alert("Email Send Successfully");
+                                location.reload();
+                            }
                         }
                     })
                 }
+
             })
 
         })

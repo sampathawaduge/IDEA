@@ -6,7 +6,6 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
 
-
                 <!-- /menu prile quick info -->
 
                 <br />
@@ -15,7 +14,7 @@
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
                     <div class="menu_section">
-
+                        <h3>General</h3>
                         <ul class="nav side-menu">
                             <li>
                                 <a href="<?php echo site_url('/Admin');?>"><i class="fa fa-home"></i>Graphs<span class="fa fa-chevron-right"></span></a>
@@ -25,13 +24,12 @@
                             </li>
                             <li><a href="<?php echo site_url('/Admin/Comments');?>"><i class="fa fa-edit"></i>Comments<span class="fa fa-chevron-right"></span></a>
                             </li>
-                            <li><a href="<?php echo site_url('/Admin/Users');?>"><i class="fa fa-user" aria-hidden="true"></i> Users <span class="fa fa-chevron-down"></span></a>
+                            <li ><a href="<?php echo site_url('/Admin/Users');?>"><i class="fa fa-user" aria-hidden="true"></i> Users <span class="fa fa-chevron-down"></span></a>
                             </li>
                             <li ><a href="<?php echo site_url('/Admin/categories');?>"><i class="fa fa-desktop"></i>Edit Categories<span class="fa fa-chevron-down"></span></a>
                             </li>
                             <li ><a href="<?php echo site_url('/Admin/showreports');?>"><i class="fa fa-desktop"></i>Reports<span class="fa fa-chevron-down"></span></a>
                             </li>
-
 
                         </ul>
                     </div>
@@ -76,51 +74,26 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>SubmissionID</th>
-                        <th>SubmissionDate</th>
-                        <th>SubmissionTime</th>
-                        <th>SubmissionUser</th>
-                        <th>Description</th>
-                        <th>userCategory</th>
+                        <th>SubmissionId</th>
+                        <th>reporterid</th>
+                        <th>reporter</th>
+
                     </tr>
                     </thead>
                     <tbody>
                     <?php
-                        foreach ($sub as $items)
-                        {
-                            echo "<tr>".
-                            "<td>".$items->submission_id."</td>
-                            <td>".$items->submission_date."</td>
-                            <td>".$items->submission_time."</td>
-                            <td>".$items->submission_user."</td>
-                            <td><a href=\"#\"><i class=\"fa fa-search update\" subid=\"$items->submission_id\" aria-hidden=\"true\"></i></a></td> 
-                            <td>".$items->user_category."</td>                   
-                             <td><input type=\"button\" class=\"btn btn-primary delete\" subid=\"$items->submission_id\" value=\"Delete\" ></td>
-                      
-                            </tr>";
+                    foreach ($com as $item)
+                    {
+                        echo "<tr>
+                        <td>".$item->submission_id."</td>
+                        <td>".$item->report_id."</td>
+                        <td>".$item->reporter."</td>
+                        </tr>";
 
-                            echo "<div class=\"modal fade\" id=\"myModal\" role=\"dialog\">";
-                            echo "<div class=\"modal-dialog\">";
-                            echo "<div class=\"modal-content\">";
-                            echo "<div class=\"modal-header\">";
-                            echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
-                            echo "<h4 class=\"modal-title\">Submission</h4>";
-                            echo "</div>";
-                            echo "<div class=\"modal-body\">";
-                            echo "<div id=\"summernotemodel\"></div>";
-                            echo "</div>";
-                            echo "<div class=\"modal-footer\">";
-                            echo "<input style='margin-top:8px;' type='button' class='btn btn-default' value='Edit' id='update'>";
-                            echo "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";
-                            echo "</div>";
-                            echo "</div>";
-                            echo "</div>";
-                            echo "</div>";
 
-                        }
 
+                    }
                     ?>
-
                     </tbody>
                 </table>
             </div>

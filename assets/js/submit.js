@@ -41,12 +41,20 @@ $(document).ready(function(){
 
         var comment = $('#summernote').summernote('code');
 
-        if(comment && selection)
+        if(comment == '<p><br></p>')
+        {
+            alert("Submission Is Empty");
+        }
+        if(!selection)
+        {
+            alert("Select Submission category");
+        }
+        else
         {
 
             $.ajax({
 
-                url:"http://localhost/IDEA/index.php/add_submission/show",
+                url:"http://localhost:81/IDEA/index.php/add_submission/show",
                 type:"POST",
                 data:{min:min,date:today,comment:comment,subcat:selection},
                 success:function(data)
@@ -61,15 +69,9 @@ $(document).ready(function(){
                     }
                 }
             });
+
         }
-        else if(!comment)
-        {
-            alert("Submission Is Empty");
-        }
-        else if(!selection)
-        {
-            alert("Select Submission category");
-        }
+
 
     })
     

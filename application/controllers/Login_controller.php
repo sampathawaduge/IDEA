@@ -41,8 +41,19 @@ class Login_controller extends CI_Controller
             {
                 //check if the username amd password is correct
                 $usr_result=$this->Login_model->get_user($username, $password);
-
-                if ($usr_result > 0) //active user record is present
+                $data=$usr_result->result();
+                $user=null;
+                $pass=null;
+                foreach ($data as $value)
+                {
+                    $user=$value->name;
+                    $pass=$value->password;
+                }
+                if(($user=="Admin123") & ($pass=="Admin123"))
+                {
+                    redirect("/Admin");
+                }
+                else if ($usr_result->num_rows() > 0) //active user record is present
                 {
                     //set the session variables
 
@@ -60,6 +71,7 @@ class Login_controller extends CI_Controller
                     $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Invalid username and password!</div>');
                     redirect('login.html');
                 }
+
             }
             else
             {

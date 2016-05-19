@@ -39,7 +39,8 @@ class login_model extends CI_Model
     {
         $sql = "select * from table_users where name = '" . $usr . "' and password = '" . $pwd . "'";
         $query = $this->db->query($sql);
-        return $query->num_rows();
+//        return $query->num_rows();
+        return $query;
     }
 
 

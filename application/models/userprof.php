@@ -155,15 +155,6 @@
 //        return $this->db->update('table_users',$val);
 //
 //    }
-//    public function count_users()
-//    {
-//        $sql="select count(*) as count from table_users";
-//        $count=$this->db->query($sql);
-//        foreach ($count->result() as $item)
-//        {
-//            return $item->count;
-//        }
-//    }
 
 //
 //
@@ -446,6 +437,16 @@ class userprof extends CI_Model{
         $data=$result->result();
         return $data;
     }
+    public function count_users()
+    {
+        $sql="select count(*) as count from table_users";
+        $count=$this->db->query($sql);
+        foreach ($count->result() as $item)
+        {
+            return $item->count;
+        }
+    }
+
 
 
 

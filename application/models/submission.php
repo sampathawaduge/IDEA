@@ -43,6 +43,48 @@ class submission extends CI_Model{
             return $item->count;
         }
     }
+    public function get_reported_submissions()
+    {
+        $submission=$this->db->get('table_reported_submissions');
+        $data=$submission->result();
+        return $data;
+    }
+    public function delete_reported_submissions($val)
+    {
+        $this->db->where('submission_id',$val);
+        if($this->db->delete('table_reported_submissions'))
+        {
+            echo true;
+        }
+        else
+        {
+            echo false;
+        }
+    }
+    public function add_report($val)
+    {
+        if($this->db->insert('table_reported_submissions',$val))
+        {
+            echo true;
+        }
+        else
+        {
+            echo false;
+        }
+    }
+    public function insert_rating($val)
+    {
+        if($this->db->insert('table_vote',$val))
+        {
+            echo true;
+        }
+        else
+        {
+            echo false;
+        }
+
+    }
+
 
 
 }

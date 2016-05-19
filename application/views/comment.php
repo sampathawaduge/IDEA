@@ -11,39 +11,44 @@
 
         var id = $('#submission').val();
         var rating = $('#rating').val();
+
         //var ratings = getRatings({{ DB::table('rating')->count() }});
 
-
-        alert(id);
-        alert(rating);
-
-
-        var sendData = JSON.stringify({
-            votes: 1,
-            ratings: ratings,
-            id: id,
-            _token: "{{ csrf_token() }}"
-        });
+//        var sendData = JSON.stringify({
+//            votes: 1,
+//            ratings: rating,
+//            id: id,
+//            _token: "{{ csrf_token() }}"
+//        });
 
         $.ajax({
-            url:"http://localhost:8/IDEA/index.php/add_submission/star_rating",
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
+            url:"http://localhost:81/IDEA/index.php/add_submission/star_rating",
+//            dataType: "json",
+//            contentType: "application/json; charset=utf-8",
             type: "POST",
-            data: sendData,
+//            data:{data:sendData},
+            data:{id:id,rate:rating},
             success: function (result) {
+                if(result)
+                {
+                    alert("Rate Successfully");
+                }
+                else
+                {
+                    alert("Unable To Rate");
+                }
+//            if (result) {
+//
+//                alert("Rate successfully!");
+//                location.reload();
+//
+//            }
+//
+//            else(result) {
+//
+//                alert("Unable to Rate");
+//            }
 
-            if (result == 'true') {
-
-                alert("Rate successfully!");
-                location.reload();
-
-            }
-
-            if (result == 'false') {
-
-                alert("Unable to Rate");
-            }
 
         },
 
@@ -83,7 +88,10 @@
                     </div>
                     <div class="profile_info">
                         <span>Welcome</span>
-                        <h2>John Doe</h2>
+                        <h2><?php
+                            echo $this->session->userdata['username'];
+                            ?>
+                        </h2>
                     </div>
                 </div>
                 <!-- /menu prile quick info -->
@@ -144,7 +152,10 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="">John Doe
+                                <img src="<?php echo base_url('assets/images1/img.jpg')?>" alt="">
+                                <?php
+                                echo $this->session->userdata['username'];
+                                ?>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">

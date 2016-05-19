@@ -143,8 +143,7 @@
                                         echo "</a>";
                                         echo "</p>";
                                         echo "</br>";
-                                        echo "<i class=\"fa fa-thumbs-up\" aria-hidden=\"true\">Like</i>";
-                                        echo "<i style=\"margin-left: 30px;\" class=\"fa fa-thumbs-down\" aria-hidden=\"true\">Dislike</i>";
+                                        echo "<a href='' style='color:red' class='report' id='$submission->submission_id' user='".$this->session->userdata['username']."'>Report</a>";
                                         echo "</div>";
                                         echo "</li>";
 
@@ -158,3 +157,25 @@
 
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        $('.report').click(function(){
+
+            var submissionid=$(this).attr("id");
+            var reporter=$(this).attr('user');
+
+            $.ajax({
+                url:"http://localhost:81/IDEA/index.php/Admin/addreports",
+                type:"POST",
+                data:{id:submissionid,user:reporter},
+                success:function(data){
+                    if(data)
+                    {
+                        alert("Reported To Admin");
+                    }
+                }
+            })
+
+        })
+    })
+</script>

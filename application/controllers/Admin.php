@@ -38,6 +38,7 @@ class Admin extends CI_Controller
         $this->load->view('Admin_comment',$data);
         $this->load->view('templates/footer');
     }
+    
     public function Users()
     {
         $this->load->model('userprof');
@@ -61,7 +62,7 @@ class Admin extends CI_Controller
 
         $data=array("subcount"=>$submission_count,"comcount"=>$comment_count,"usercount"=>$users);
         echo json_encode($data);
-        
+
     }
     public function categories()
     {
@@ -72,5 +73,27 @@ class Admin extends CI_Controller
         $this->load->view('templates/header');
         $this->load->view('Admin_categories', $data);
         $this->load->view('templates/footer');
+    }
+    public function showreports()
+    {
+        $this->load->model('submission');
+        $result=$this->submission->get_reported_submissions();
+        $data['com']=$result;
+
+        $this->load->view('templates/header');
+        $this->load->view('Admin_reports',$data);
+        $this->load->view('templates/footer');
+    }
+    public function addreports()
+    {
+        $subid=$this->input->post('id');
+        $reporter=$this->input->post('user');
+        $data=[
+            "submission_id"=>$subid,
+            "reporter"=>$reporter
+        ];
+
+        $this->load->model('submission');
+        $this->submission->add_report($data);
     }
 }

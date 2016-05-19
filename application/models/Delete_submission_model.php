@@ -18,6 +18,7 @@ class Delete_submission_model extends CI_Model{
             echo false;
         }
     }
+    
 
 
 }

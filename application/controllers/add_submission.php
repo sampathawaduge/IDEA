@@ -60,18 +60,20 @@ class add_submission extends CI_Controller
         ];
         $this->load->model("submission");
         $this->submission->insert_submission($array);
-        echo $comment;
+
     }
     public function star_rating()
     {
-        $submissionID=$this->input->post('submission');
-        $ratingID=$this->input->post('rating');
+        $submissionID=$this->input->post('id');
+        $ratingID=$this->input->post('rate');
         $array=[
             'SubmissionID'=>$submissionID,
             'RatingID'=>$ratingID
         ];
         $this->load->model("submission");
-        $this->submission->insert_rating($array);
+        echo $this->submission->insert_rating($array);
+
+        
     }
 
 }

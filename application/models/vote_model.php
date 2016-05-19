@@ -19,13 +19,13 @@ class vote_model extends CI_Model
         if($vote==1) {
             if ($query1->num_rows() > 0) {
                 echo "<script type='text/javascript'>alert('you have already voted!');";
-                echo 'window.location.href="http://localhost:8080/IDEA/index.php/comment/show/' . $submissionid . '/' . $commentid . '"</script>';
+                echo 'window.location.href="http://localhost:81/IDEA/index.php/comment/show/' . $submissionid . '/' . $commentid . '"</script>';
             }
             else if($query2->num_rows() > 0){
                 $sql3="update table_comment_vote set vote_status=1 where sub_id=$submissionid and comment_id=$commentid and user like '$user'";
                 $this->db->query($sql3);
                 echo "<script type='text/javascript'>alert('you have successfully change your vote!');";
-                echo 'window.location.href="http://localhost:8080/IDEA/index.php/comment/show/' . $submissionid . '/' . $commentid . '"</script>';
+                echo 'window.location.href="http://localhost:81/IDEA/index.php/comment/show/' . $submissionid . '/' . $commentid . '"</script>';
 
             } else {
                 return $this->db->insert('table_comment_vote', $array);
@@ -34,13 +34,13 @@ class vote_model extends CI_Model
         if($vote==0) {
             if ($query2->num_rows() > 0) {
                 echo "<script type='text/javascript'>alert('you have already voted!');";
-                echo 'window.location.href="http://localhost:8080/IDEA/index.php/comment/show/' . $submissionid . '/' . $commentid . '"</script>';
+                echo 'window.location.href="http://localhost:81/IDEA/index.php/comment/show/' . $submissionid . '/' . $commentid . '"</script>';
             }
             else if($query1->num_rows() > 0){
                 $sql4="update table_comment_vote set vote_status=0 where sub_id=$submissionid and comment_id=$commentid and user like '$user'";
                 $this->db->query($sql4);
                 echo "<script type='text/javascript'>alert('you have successfully change your vote!!');";
-                echo 'window.location.href="http://localhost:8080/IDEA/index.php/comment/show/' . $submissionid . '/' . $commentid . '"</script>';
+                echo 'window.location.href="http://localhost:81/IDEA/index.php/comment/show/' . $submissionid . '/' . $commentid . '"</script>';
 
             } else {
                 return $this->db->insert('table_comment_vote', $array);
